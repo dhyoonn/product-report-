@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>갱년기 여성 수면·다이어트 복합 기능 제품 기획안</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07090F;
+  --bg2: #0F1420;
+  --bg3: #161D30;
+  --card: #1C2540;
+  --border: rgba(180,160,100,0.2);
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-dim: rgba(201,168,76,0.15);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45,212,191,0.12);
+  --coral: #F4A261;
+  --coral-dim: rgba(244,162,97,0.12);
+  --blue: #60A5FA;
+  --blue-dim: rgba(96,165,250,0.12);
+  --purple: #A78BFA;
+  --purple-dim: rgba(167,139,250,0.12);
+  --text: #EDE8DC;
+  --text2: #9AA5BE;
+  --text3: #5C6B87;
+  --serif: 'Noto Serif KR', Georgia, serif;
+  --sans: 'Noto Sans KR', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(7,9,15,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 52px;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--gold);
+  white-space: nowrap;
+  font-weight: 600;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links a {
+  font-size: 11px;
+  color: var(--text3);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem 5rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(45,212,191,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+.hero-meta-item { font-size: 12px; color: var(--text3); }
+.hero-meta-item strong { display: block; color: var(--text2); font-size: 13px; font-weight: 500; margin-top: 3px; }
+
+/* ── SECTION ── */
+section {
+  padding: 6rem 5rem;
+  border-top: 1px solid var(--border);
+}
+section:nth-child(even) { background: var(--bg2); }
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.section-desc {
+  color: var(--text2);
+  max-width: 680px;
+  margin-bottom: 3rem;
+  font-size: 15px;
+}
+
+/* ── GRID ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* ── CARD ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+.card-gold { border-color: rgba(201,168,76,0.4); background: var(--gold-dim); }
+.card-teal { border-color: rgba(45,212,191,0.3); background: var(--teal-dim); }
+.card-coral { border-color: rgba(244,162,97,0.3); background: var(--coral-dim); }
+.card-blue { border-color: rgba(96,165,250,0.3); background: var(--blue-dim); }
+.card-purple { border-color: rgba(167,139,250,0.3); background: var(--purple-dim); }
+
+.card-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 0.5rem;
+}
+.card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label { font-size: 13px; color: var(--text2); line-height: 1.5; }
+.stat-source { font-size: 11px; color: var(--text3); margin-top: 0.5rem; }
+
+/* ── LOGIC FLOW ── */
+.logic-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+.logic-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 13px;
+  text-align: center;
+  min-width: 120px;
+  flex: 1;
+}
+.logic-step.highlight { background: var(--gold-dim); border-color: rgba(201,168,76,0.5); color: var(--gold-light); }
+.logic-step.result { background: var(--teal-dim); border-color: rgba(45,212,191,0.4); color: var(--teal); }
+.logic-arrow {
+  color: var(--text3);
+  font-size: 18px;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ── TABLE ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 1.5rem 0;
+}
+.data-table th {
+  background: var(--bg3);
+  color: var(--text2);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.data-table td {
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid rgba(180,160,100,0.08);
+  color: var(--text);
+  vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tag-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.tag-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
+.tag-red { background: rgba(248,113,113,0.1); color: #F87171; border: 1px solid rgba(248,113,113,0.3); }
+.tag-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+
+/* ── DIRECTION BLOCK ── */
+.direction-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.direction-badge {
+  flex-shrink: 0;
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.badge-a { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(45,212,191,0.4); }
+.badge-b { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.4); }
+
+.direction-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; margin-bottom: 0.4rem; }
+.direction-sub { font-size: 14px; color: var(--text2); }
+
+/* ── MECHANISM BOX ── */
+.mechanism {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.mechanism-title {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 1.25rem;
+}
+.mechanism-chain {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 13px;
+}
+.m-node {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  color: var(--text2);
+}
+.m-node.key { background: var(--gold-dim); border-color: rgba(201,168,76,0.4); color: var(--gold-light); font-weight: 500; }
+.m-node.out { background: var(--teal-dim); border-color: rgba(45,212,191,0.4); color: var(--teal); }
+.m-arrow { color: var(--text3); padding: 0 0.25rem; line-height: 2.2; }
+
+/* ── EVIDENCE ── */
+.evidence {
+  border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  background: var(--gold-dim);
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+}
+.evidence-title { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+.evidence p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+.evidence strong { color: var(--text); font-weight: 500; }
+
+.evidence-teal {
+  border-left-color: var(--teal);
+  background: var(--teal-dim);
+}
+.evidence-teal .evidence-title { color: var(--teal); }
+
+/* ── TIP CARD ── */
+.tip-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.tip-num {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: var(--serif);
+}
+.tip-content h4 { font-size: 14px; font-weight: 500; margin-bottom: 0.4rem; color: var(--text); }
+.tip-content p { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+/* ── COMPARISON ── */
+.vs-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+.vs-label {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text3);
+  margin: auto;
+  margin-top: 2rem;
+}
+
+/* ── CALLOUT ── */
+.callout {
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.callout-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.callout p { font-size: 15px; line-height: 1.8; font-family: var(--serif); color: var(--gold-light); }
+
+.callout-teal {
+  background: var(--teal-dim);
+  border-color: rgba(45,212,191,0.3);
+}
+.callout-teal .callout-label { color: var(--teal); }
+.callout-teal p { color: var(--text); }
+
+/* ── FORMULA ── */
+.formula-box {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin: 1.5rem 0;
+}
+.formula-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(180,160,100,0.06);
+}
+.formula-row:last-child { border-bottom: none; }
+.formula-role {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  min-width: 80px;
+  margin-top: 2px;
+}
+.formula-name { font-weight: 500; font-size: 14px; color: var(--text); }
+.formula-desc { font-size: 12px; color: var(--text2); margin-top: 3px; }
+
+/* ── CHECKLIST ── */
+.check-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.6rem 0;
+}
+.check-icon { flex-shrink: 0; margin-top: 2px; font-size: 15px; }
+.check-text { font-size: 14px; color: var(--text2); line-height: 1.6; }
+.check-text strong { color: var(--text); font-weight: 500; }
+
+/* ── QUOTE ── */
+.big-quote {
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  background: var(--gold-dim);
+  border-radius: 0 12px 12px 0;
+}
+.big-quote p {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.7;
+  color: var(--gold-light);
+}
+
+/* ── PILL ── */
+.pill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.pill-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.4); }
+.pill-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
+.pill-red { background: rgba(248,113,113,0.1); color: #F87171; border: 1px solid rgba(248,113,113,0.3); }
+.pill-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+
+/* ── DIVIDER ── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+/* ── RECOMMENDATION ── */
+.rec-block {
+  background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(45,212,191,0.05));
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.rec-block h2 { font-family: var(--serif); font-size: 2rem; margin-bottom: 1rem; }
+.rec-block p { color: var(--text2); max-width: 700px; margin: 0 auto 2rem; line-height: 1.8; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 3rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text3);
+}
+
+@media (max-width: 768px) {
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .vs-wrap { grid-template-columns: 1fr; }
+  .hero-meta { flex-wrap: wrap; gap: 1.5rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">상품 기획안</span>
+  <div class="nav-links">
+    <a href="#market">시장 배경</a>
+    <a href="#logic">핵심 로직</a>
+    <a href="#evidence">근거 데이터</a>
+    <a href="#language">마케팅 언어</a>
+    <a href="#direction-a">방향 A · 아쉬와간다</a>
+    <a href="#direction-b">방향 B · 사프란</a>
+    <a href="#diff">차별화</a>
+    <a href="#target">타겟·소구</a>
+    <a href="#tips">방향성 Tip</a>
+    <a href="#conclusion">최종 제언</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-eyebrow">신규 상품 기획안 · 미디어커머스 사업부</div>
+  <h1>갱년기 여성의 수면을 돌려주면<br><em>자는 동안 살이 빠집니다</em></h1>
+  <p class="hero-sub">
+    갱년기 수면장애 × 복부 비만 × 호르몬 불균형, 세 가지 문제를 하나의 메커니즘으로 연결하는
+    국내 최초 포지셔닝 기획안입니다. 아쉬와간다(Sensoril)와 사프란(Affron®) 두 방향성을 제시합니다.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">분류<strong>건강기능식품 · 일반식품</strong></div>
+    <div class="hero-meta-item">타겟<strong>갱년기 여성 45–55세</strong></div>
+    <div class="hero-meta-item">카테고리<strong>야간 다이어트 (신규 카테고리)</strong></div>
+    <div class="hero-meta-item">제형 제안<strong>액상 스틱 (취침 전 1포)</strong></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     01. 시장 배경
+════════════════════════════════════ -->
+<section id="market">
+  <div class="section-label">01 · 시장 배경</div>
+  <h2 class="section-title">왜 지금, 갱년기 여성인가</h2>
+  <p class="section-desc">
+    갱년기 여성은 대한민국에서 가장 빠르게 성장하는 건강기능식품 소비층입니다.
+    인구 고령화와 함께 이 시장은 매년 두 자릿수 성장을 이어가고 있습니다.
+  </p>
+
+  <div class="grid-4" style="margin-bottom: 2rem;">
+    <div class="card card-gold">
+      <div class="stat-num">400만</div>
+      <div class="stat-label">국내 45–55세 여성 추정 인구<br>갱년기 진입 또는 진행 중</div>
+      <div class="stat-source">통계청 인구 추계</div>
+    </div>
+    <div class="card card-gold">
+      <div class="stat-num">58%</div>
+      <div class="stat-label">갱년기 증상 중 수면장애 경험 빈도<br>모든 갱년기 증상 중 <strong style="color:var(--gold)">1위</strong></div>
+      <div class="stat-source">대한폐경학회 폐경 질환 인식 및 치료 실태 조사</div>
+    </div>
+    <div class="card card-gold">
+      <div class="stat-num">5.7cm</div>
+      <div class="stat-label">폐경 전후 평균 허리둘레 증가<br>체지방 평균 +3.4kg</div>
+      <div class="stat-source">대한갱년기학회 공식 발표</div>
+    </div>
+    <div class="card card-gold">
+      <div class="stat-num">6조↑</div>
+      <div class="stat-label">2025년 국내 건강기능식품 시장<br>CAGR 5~6% 성장 전망</div>
+      <div class="stat-source">한국건강기능식품협회 2025</div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">사전 체크리스트 ① 대중성</div>
+      <h3>매우 넓은 공감층</h3>
+      <p>갱년기 여성의 절반 이상이 수면장애를 겪으며, 이로 인한 체형 변화까지 경험합니다. 하나의 제품으로 두 가지 고통을 동시에 다룰 수 있어 공감 폭이 넓습니다.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">사전 체크리스트 ② 긴급성</div>
+      <h3>매일 밤 발생하는 문제</h3>
+      <p>수면장애는 매일 밤 경험하는 즉각적 고통입니다. 복부 비만은 거울을 볼 때마다 확인되는 시각적 자극입니다. 두 가지 모두 즉각적 해결 욕구를 만듭니다.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">사전 체크리스트 ③ 수익성</div>
+      <h3>3만 원 이상 충분 가능</h3>
+      <p>갱년기/수면/다이어트 단일 카테고리 평균가 모두 3–7만 원대. 3가지를 통합하는 솔루션은 5–8만 원 포지셔닝이 가능하며, 차별화 수요(+1만 원 의향)도 충분합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     02. 핵심 로직
+════════════════════════════════════ -->
+<section id="logic">
+  <div class="section-label">02 · 핵심 로직</div>
+  <h2 class="section-title">문제를 다시 정의합니다</h2>
+  <p class="section-desc">
+    기존 갱년기 제품은 "호르몬 때문에 어쩔 수 없다"는 프레임을 씁니다.
+    우리는 다른 프레임을 제안합니다.
+  </p>
+
+  <div class="callout">
+    <div class="callout-label">기획의 핵심 한 줄</div>
+    <p>"갱년기 여성이 살이 찌는 진짜 이유는 호르몬이 아니라 '잠'입니다 — 잠을 돌려주면 자는 동안 살이 빠집니다."</p>
+  </div>
+
+  <div class="grid-2" style="margin: 2.5rem 0;">
+    <div>
+      <h3 style="font-family: var(--serif); margin-bottom: 1rem; color: var(--text3); font-size: 1rem;">❌ 기존 프레임 (소비자가 포기하게 만드는 방식)</h3>
+      <div class="logic-flow">
+        <div class="logic-step">갱년기</div>
+        <div class="logic-arrow">→</div>
+        <div class="logic-step">에스트로겐 ↓</div>
+        <div class="logic-arrow">→</div>
+        <div class="logic-step">살이 찐다</div>
+        <div class="logic-arrow">→</div>
+        <div class="logic-step">어쩔 수 없다</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family: var(--serif); margin-bottom: 1rem; color: var(--gold); font-size: 1rem;">✅ 우리의 프레임 (해결책이 있다는 희망)</h3>
+      <div class="logic-flow">
+        <div class="logic-step highlight">갱년기</div>
+        <div class="logic-arrow">→</div>
+        <div class="logic-step highlight">수면장애</div>
+        <div class="logic-arrow">→</div>
+        <div class="logic-step highlight">지방분해 실패</div>
+        <div class="logic-arrow">→</div>
+        <div class="logic-step result">수면 회복 = 해결</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mechanism">
+    <div class="mechanism-title">메커니즘 상세 — 왜 갱년기에 잠을 못 자면 살이 찌는가</div>
+    <div class="mechanism-chain">
+      <div class="m-node">갱년기</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">에스트로겐 ↓</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node key">스트레스 살 호르몬 ↑<br><span style="font-size:11px;opacity:0.7">(코르티솔)</span></div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">새벽 각성<br>얕은 잠</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">성장호르몬 분비 실패<br>(밤 10시~새벽 2시)</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">야간 지방분해 중단</div>
+    </div>
+    <div class="mechanism-chain" style="margin-top: 0.75rem;">
+      <div class="m-node key">스트레스 살 호르몬 ↑</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">식욕 호르몬 교란<br>(렙틴↓ 그렐린↑)</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">폭식·단 것 당김</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">복부·내장지방 집중 축적</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node out">갱년기 뱃살 악순환</div>
+    </div>
+  </div>
+
+  <div class="callout callout-teal">
+    <div class="callout-label">소비자 공감 포인트</div>
+    <p>"낮에 아무리 굶고 운동해도 안 빠지는 이유, 밤에 답이 있습니다. 자는 동안 몸이 일하지 않으면, 낮의 노력이 전부 헛수고입니다."</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     03. 근거 데이터
+════════════════════════════════════ -->
+<section id="evidence">
+  <div class="section-label">03 · 근거 데이터</div>
+  <h2 class="section-title">로직을 뒷받침하는 임상 근거</h2>
+  <p class="section-desc">세 가지 연결 고리 각각에 권위 있는 데이터가 존재합니다.</p>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem; color: var(--text2);">연결 고리 ① 갱년기 여성의 수면장애</h3>
+  <div class="grid-3" style="margin-bottom: 2.5rem;">
+    <div class="evidence">
+      <div class="evidence-title">대한폐경학회 공식 조사</div>
+      <p>갱년기 증상 중 <strong>수면장애 경험 빈도 58% 이상 — 모든 갱년기 증상 1위</strong>. 삶의 질을 가장 크게 저하시키는 증상으로 기록됨.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-title">국제 학술 메타분석</div>
+      <p>폐경 여성의 <strong>28~63%가 불면증 경험</strong>. 에스트로겐 수치 감소가 체온 조절·신경전달물질에 영향, 근골격 통증도 수면 저해.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-title">건강보험심사평가원 (2020)</div>
+      <p>여성 불면증 환자 중 <strong>50대 22%, 60대 22.7%</strong>. 여성 불면증 환자 2명 중 1명이 갱년기 구간에 집중. 50대부터 급증하는 패턴 확인.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem; color: var(--text2);">연결 고리 ② 갱년기 여성의 복부 비만</h3>
+  <div class="grid-3" style="margin-bottom: 2.5rem;">
+    <div class="evidence">
+      <div class="evidence-title">대한갱년기학회 공식 발표 ⭐</div>
+      <p>폐경 전후 평균 <strong>체지방 +3.4kg, 허리둘레 +5.7cm 증가</strong>. 특히 "갱년기 증상이 심한 여성일수록 비만 확률이 높아진다" — 수면장애와의 연결을 직접 명시.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-title">미국 여성 건강 연구 (362명)</div>
+      <p>복부 지방은 <strong>마지막 생리 2년 전부터</strong> 빠르게 증가 시작, 갱년기 전환 시 성장 속도 가속화. 폐경 이행기 내장지방 비율 5~8%→10~15%로 2배 증가.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-title">국제 임상 데이터</div>
+      <p>폐경 후 여성의 <strong>70%가 복부에 과도한 지방 축적</strong>. 수면 부족은 폐경 여성에서 지방 산화를 32% 감소시키며 수면 에너지 소비량도 감소.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem; color: var(--text2);">연결 고리 ③ 수면 부족 → 체중 증가 (결정타 데이터)</h3>
+  <div class="grid-2">
+    <div class="evidence evidence-teal">
+      <div class="evidence-title">케이스 웨스턴 리저브대 (7만 명 · 16년 추적)</div>
+      <p>하루 5시간 미만 수면 여성은 7시간 수면 여성 대비 <strong>체중 평균 2.45kg 더 무거움. 비만 위험 15% 증가. 15kg 이상 증가 가능성 32% 높음</strong>. 식이·운동 변수 통제 후에도 유의한 차이.</p>
+    </div>
+    <div class="evidence evidence-teal">
+      <div class="evidence-title">수면 호르몬 메커니즘 데이터</div>
+      <p>수면 부족 반복 시 <strong>렙틴(포만 호르몬) 18% 감소, 그렐린(식욕 호르몬) 28% 증가</strong>. 밤 10시~새벽 2시 성장호르몬 분비 → 지방 분해 (특히 복부지방). 수면 없으면 이 시간이 통째로 손실.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     04. 마케팅 언어 체계
+════════════════════════════════════ -->
+<section id="language">
+  <div class="section-label">04 · 마케팅 언어 체계</div>
+  <h2 class="section-title">소비자 언어로의 번역</h2>
+  <p class="section-desc">의학 용어를 소비자가 이미 경험한 감각의 언어로 바꿉니다.</p>
+
+  <div class="grid-2" style="margin-bottom: 2.5rem;">
+    <div class="card">
+      <div class="card-label">의학 용어 → 소비자 경험 언어</div>
+      <table class="data-table">
+        <thead><tr><th>의학 표현</th><th>소비자 언어</th></tr></thead>
+        <tbody>
+          <tr><td>코르티솔 분비 과잉</td><td><strong style="color: var(--gold)">스트레스 살</strong> / 밤의 긴장 신호</td></tr>
+          <tr><td>야간 코르티솔 미저하</td><td>새벽 3시에 어김없이 깨는 것</td></tr>
+          <tr><td>코르티솔성 복부비만</td><td>굶어도 배만 나오는 것</td></tr>
+          <tr><td>렙틴·그렐린 교란</td><td>자고 나서 단 게 더 당기는 것</td></tr>
+          <tr><td>성장호르몬 분비 실패</td><td>밤에 몸이 청소·정비를 못 한 것</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <div class="card-label">핵심 소구 언어 체계</div>
+        <h3>구간별 사용 언어 가이드</h3>
+        <div style="margin-top: 0.75rem;">
+          <div class="check-item"><span class="check-icon">🎯</span><div class="check-text"><strong>썸네일/3초 후크:</strong> "새벽에 깨고, 배만 나온다면" / "갱년기 5년, 허리 +5.7cm"</div></div>
+          <div class="check-item"><span class="check-icon">📖</span><div class="check-text"><strong>문제 정의 구간:</strong> "갱년기 경보 호르몬" / "밤의 긴장 신호"</div></div>
+          <div class="check-item"><span class="check-icon">🔬</span><div class="check-text"><strong>메커니즘 설명:</strong> "야간 정비를 못 한 공장" 비유</div></div>
+          <div class="check-item"><span class="check-icon">💊</span><div class="check-text"><strong>성분 소개:</strong> 원료명 아닌 기능 언어 ("긴장 신호를 끄는 원료")</div></div>
+          <div class="check-item"><span class="check-icon">✅</span><div class="check-text"><strong>신뢰 구간 (1회만):</strong> 원료명 + 임상 근거 노출</div></div>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">공포 소구 메시지</div>
+        <p style="font-size: 14px;">"지금 새벽 3시에 깨고 계신가요? 그 순간 스트레스 살 호르몬이 치솟고, 뱃살이 쌓입니다. 갱년기 5년이면 허리둘레 평균 5.7cm. 더 무서운 건, 이 살은 굶어도 안 빠진다는 것."</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.15rem; margin-bottom: 1rem;">기존 해결책 차단 로직</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>소비자가 이미 시도한 것</th>
+        <th>한계/단점</th>
+        <th>우리 원료가 필요한 이유</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>멜라토닌·수면제</td><td>잠은 자도 갱년기 증상·복부지방 그대로. 의존성 우려</td><td>코르티솔/세로토닌 경로를 건드리지 않아 근본 미해결</td></tr>
+      <tr><td>백수오·갱년기 단일 건기식</td><td>갱년기 증상 일부 완화. 수면·다이어트 미해결</td><td>수면 메커니즘과 지방 대사에 작용하지 않음</td></tr>
+      <tr><td>가르시니아·다이어트 보조제</td><td>갱년기엔 효과 급감. 수면 부족 상태에서 의지 유지 불가</td><td>진짜 원인인 야간 지방분해 실패를 해결 못 함</td></tr>
+      <tr><td>운동·식단</td><td>갱년기 진입 후 동일 노력 대비 효과 급감. 수면 부족 시 더욱 어려움</td><td>몸의 시스템(야간 복원력)이 먼저 회복돼야 효과</td></tr>
+      <tr><td>호르몬 치료(HRT)</td><td>부작용 우려, 의료기관 접근 필요, 진입 장벽 높음</td><td>천연 성분으로 유사 경로 케어 가능성 소구</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════════════════════════════
+     DIRECTION A — 아쉬와간다
+════════════════════════════════════ -->
+<section id="direction-a" style="background: rgba(45,212,191,0.03);">
+  <div class="section-label">05 · 방향 A</div>
+
+  <div class="direction-header">
+    <div class="direction-badge badge-a">A</div>
+    <div>
+      <div class="direction-title">아쉬와간다 방향성<br><span style="color:var(--teal)">Sensoril® 기반 · 코르티솔 차단 스토리</span></div>
+      <div class="direction-sub">스트레스 살 호르몬을 잡아 수면·갱년기·다이어트를 동시에 해결하는 복합 원료 구조</div>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem;">KSM-66 vs Sensoril — 우리 방향에 맞는 원료는?</h3>
+
+  <table class="data-table" style="margin-bottom: 2.5rem;">
+    <thead>
+      <tr>
+        <th>비교 항목</th>
+        <th>KSM-66</th>
+        <th>Sensoril® <span class="pill pill-teal">추천</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>원료 부위</td><td>뿌리만 (Root only)</td><td><strong>뿌리 + 잎 (Root + Leaf)</strong></td></tr>
+      <tr><td>위타놀라이드 함량</td><td>≥ 5%</td><td><strong>≥ 10% (2배 농축)</strong></td></tr>
+      <tr><td>유효 용량</td><td>300–600mg/day (고용량)</td><td><strong>125–250mg/day (저용량 = 스틱 파우치 가능)</strong></td></tr>
+      <tr><td>임상 연구 수</td><td>22+ RCT (더 많음)</td><td>15개 연구</td></tr>
+      <tr>
+        <td><strong>갱년기 여성 전용 임상</strong></td>
+        <td><span class="tag tag-red">❌ 없음</span></td>
+        <td><span class="tag tag-teal">✅ 2025년 갱년기 전용 임상<br>Journal of Menopausal Medicine</span></td>
+      </tr>
+      <tr><td>코르티솔 감소 데이터</td><td><strong>27.9% 감소 (60일 · 강력한 숫자)</strong></td><td>스트레스 62% 감소</td></tr>
+      <tr><td>수면 프로파일</td><td>수면 질 개선 (활성형)</td><td><strong>진정·수면 특화 (야간 복용 적합)</strong></td></tr>
+      <tr><td>복용 시점 핏</td><td>아침·낮 (활성형 성격)</td><td><strong>취침 전 (진정형) ← 야간 다이어트 컨셉</strong></td></tr>
+      <tr><td>국내 인지도</td><td>높음 (경쟁 치열)</td><td><strong>낮음 → 새 원료 포지셔닝 가능</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="evidence evidence-teal" style="margin-bottom: 2rem;">
+    <div class="evidence-title">Sensoril® 갱년기 여성 임상 (2025 · Kerry Group)</div>
+    <p>폐경 후 여성 대상 250mg/day 임상 결과: <strong>안면홍조·야간 발한 24% 감소, 기억력 저하·불안 등 심리사회적 증상 16% 감소, 참여 여성 78%가 삶의 질 개선 경험</strong>. 갱년기 특화 임상을 보유한 아쉬와간다 원료는 현재 Sensoril®이 유일.</p>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem;">원료 설계 — 방향 A</h3>
+  <div class="formula-box">
+    <div class="formula-row">
+      <div class="formula-role">메인 원료</div>
+      <div>
+        <div class="formula-name">Sensoril® 250mg <span class="pill pill-teal">배타적 차별성 담당</span></div>
+        <div class="formula-desc">코르티솔(스트레스 살 호르몬) 억제 → 수면 회복 + 갱년기 증상 케어 + 야간 지방 대사 복원. 갱년기 여성 전용 임상 보유로 신뢰 소구 가능.</div>
+      </div>
+    </div>
+    <div class="formula-row">
+      <div class="formula-role">서브 원료 ①</div>
+      <div>
+        <div class="formula-name">회화나무열매추출물 또는 백수오(EstroG-100) <span class="pill pill-gold">식약처 갱년기 인정</span></div>
+        <div class="formula-desc">식약처 개별인정형 원료로 "갱년기 여성 건강에 도움" 기능성 표시 확보. 광고 법적 신뢰 기반. (백수오 대신 회화나무열매 권장 — 과거 이슈 인식 없음)</div>
+      </div>
+    </div>
+    <div class="formula-row">
+      <div class="formula-role">서브 원료 ②</div>
+      <div>
+        <div class="formula-name">락티움 150mg + L-테아닌 200mg <span class="pill pill-blue">즉각 수면감</span></div>
+        <div class="formula-desc">복용 첫날부터 "잘 잤다"는 즉각 체감 유도. 재구매 동기 부여. 락티움은 코르티솔 조절 + 수면 임상 다수. GABA 수용체 조절 시너지.</div>
+      </div>
+    </div>
+    <div class="formula-row">
+      <div class="formula-role">서브 원료 ③</div>
+      <div>
+        <div class="formula-name">가르시니아 캄보지아 + 비타민 B군 <span class="pill pill-gold">즉각 다이어트감</span></div>
+        <div class="formula-desc">1~2주 내 부기·체중 변화로 지속 복용 동기 부여. 야간 지방 대사 보조. 마케팅에서 "자는 동안 체지방 케어" 소구 보완.</div>
+      </div>
+    </div>
+    <div class="formula-row">
+      <div class="formula-role">부원료</div>
+      <div>
+        <div class="formula-name">마그네슘 + 비타민 D</div>
+        <div class="formula-desc">갱년기 여성 결핍 보완, 수면 보조, 제품 스펙 강화.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top: 2rem;">
+    <div class="card card-teal">
+      <div class="card-label">방향 A · 마케팅 포지셔닝</div>
+      <h3>코르티솔 단일 범인 스토리</h3>
+      <p>"스트레스 살 호르몬이 잠을 빼앗고, 배에 살을 쌓습니다. 이것 하나를 잡으면 갱년기·수면·다이어트가 동시에 풀립니다." — 코르티솔을 중심으로 세 가지 문제를 엮는 통합 스토리.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">방향 A · 주의사항</div>
+      <h3>검토 필요 항목</h3>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">Sensoril® 국내 수입·처방 가능 제조처 컨택 (Kerry Group 라이선스 보유처)</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">회화나무열매 vs 백수오 중 기능성 표시 원료 선택 (법무·인허가 검토)</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">"자는 동안 다이어트" 광고 표현의 식약처 표시광고 가이드 해석 확인</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">아쉬와간다 원료명 대신 기능 언어 전면 사용 (원료명 노출 시 가격 역쇼핑 리스크)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     DIRECTION B — 사프란
+════════════════════════════════════ -->
+<section id="direction-b">
+  <div class="section-label">06 · 방향 B</div>
+
+  <div class="direction-header">
+    <div class="direction-badge badge-b">B</div>
+    <div>
+      <div class="direction-title">사프란 방향성<br><span style="color:var(--gold)">Affron® 기반 · 세로토닌 단일 경로 스토리</span></div>
+      <div class="direction-sub">하나의 원료, 하나의 기전으로 갱년기·수면·다이어트를 동시에 커버하는 "올인원 단일 원료" 컨셉</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">방향 B의 핵심 강점</div>
+    <p>"세계에서 가장 비싼 향신료 '붉은 금' 사프란, 단 하나의 원료가 갱년기 증상·수면·식욕을 동시에 잡습니다 — 세로토닌 하나로."</p>
+  </div>
+
+  <div class="mechanism" style="margin: 2rem 0;">
+    <div class="mechanism-title">Affron® 사프란의 단일 기전 — 세로토닌 경로</div>
+    <div class="mechanism-chain">
+      <div class="m-node key">사프란<br>(크로신·사프라날)</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node key">세로토닌<br>재흡수 억제</div>
+      <div class="m-arrow">→</div>
+      <div class="m-node">세로토닌 수치 ↑<br>+ GABA 수용체 조절<br>+ HPA축 안정화</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.25rem;">
+      <div class="m-node out" style="text-align:center; padding: 0.75rem;">갱년기 증상 완화<br><span style="font-size:11px;">(기분·열감·심리)</span></div>
+      <div class="m-node out" style="text-align:center; padding: 0.75rem;">수면 개선<br><span style="font-size:11px;">(입면·야간 각성↓)</span></div>
+      <div class="m-node out" style="text-align:center; padding: 0.75rem;">식욕 억제 → 다이어트<br><span style="font-size:11px;">(허리둘레·체지방↓)</span></div>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem;">Affron® 임상 근거 — 세 가지 기능 각각의 인간 임상</h3>
+
+  <div class="grid-3" style="margin-bottom: 2rem;">
+    <div class="evidence">
+      <div class="evidence-title">① 갱년기 증상 임상<br>(Journal of Menopausal Medicine, 2021)</div>
+      <p>갱년기 전환기 여성 86명, <strong>Affron® 28mg/day, 12주 RCT</strong>. 안면홍조·수면장애·심리 증상 유의 개선. 갱년기 여성 직접 타겟 임상.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-title">② 수면 개선 임상<br>(PMC, 2024 · 불면 성인 150명)</div>
+      <p>불면 증상 성인 150명 대상 RCT. 사프란 추출물 복용군이 위약 대비 <strong>불면증 척도(AIS) 유의 개선</strong>. 세로토닌 재흡수 억제 + GABA 수용체 조절 경로 확인.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-title">③ 다이어트 임상<br>(과체중 여성 60명, 8주)</div>
+      <p>과체중 여성 대상 8주 임상에서 위약 대비 <strong>식욕 감소, 허리둘레·총 체지방·BMI 유의하게 감소</strong>. 세로토닌 → 포만감 → 간식 충동 억제 경로.</p>
+    </div>
+  </div>
+
+  <div class="card card-gold" style="margin-bottom: 2rem;">
+    <div class="card-label">🚨 국내 규제 현황 — 선점 타이밍 도래</div>
+    <h3>2026년 2월 식약처 개별인정형 승인 완료 (국내 최초)</h3>
+    <p style="margin-top: 0.5rem;">
+      Affron® 사프란 추출물이 현대바이오랜드-팜액티브(Pharmactive, 스페인) 협력으로 <strong>식약처 개별인정형 기능성 원료 승인 획득</strong>. 
+      사프란 원료로 국내 건기식 기능성 인정을 받은 것은 이번이 첫 사례. 
+      승인까지 2년 이상 소요, 1,000여 명 대상 12건의 인체 임상시험 자료 제출. 
+      기능성: "스트레스 완화에 도움을 줄 수 있음".
+      <strong style="color: var(--gold)">현재 국내 사프란 건기식 시장은 사실상 공백 — 지금이 카테고리 선점 타이밍.</strong>
+    </p>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: 2rem;">
+    <div>
+      <h3 style="font-family: var(--serif); font-size: 1.1rem; margin-bottom: 1rem;">원료 설계 — 방향 B (Affron® 단독 메인)</h3>
+      <div class="formula-box">
+        <div class="formula-row">
+          <div class="formula-role">메인 원료</div>
+          <div>
+            <div class="formula-name">Affron® 사프란 추출물 28–30mg <span class="pill pill-gold">올인원 핵심</span></div>
+            <div class="formula-desc">세로토닌 단일 경로로 갱년기 증상 + 수면 + 식욕 억제 동시 케어. 식약처 개별인정 기능성 표시 가능. 소량 유효 → 스틱·음료 제형 가능.</div>
+          </div>
+        </div>
+        <div class="formula-row">
+          <div class="formula-role">서브 원료 ①</div>
+          <div>
+            <div class="formula-name">락티움 + L-테아닌 <span class="pill pill-blue">즉각 수면감 보강</span></div>
+            <div class="formula-desc">Affron®의 수면 효과를 첫날부터 즉각 체감시키는 역할. 재구매 결정 요소.</div>
+          </div>
+        </div>
+        <div class="formula-row">
+          <div class="formula-role">서브 원료 ②</div>
+          <div>
+            <div class="formula-name">마그네슘 + 비타민 B6</div>
+            <div class="formula-desc">세로토닌 합성 보조 (트립토판 → 5-HTP → 세로토닌 경로 강화). 세로토닌 스토리에 과학적 완성도 추가.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family: var(--serif); font-size: 1.1rem; margin-bottom: 1rem;">멜라토닌과의 비교 — 왜 사프란인가</h3>
+      <table class="data-table">
+        <thead><tr><th>관점</th><th>멜라토닌</th><th>Affron® 사프란</th></tr></thead>
+        <tbody>
+          <tr><td>시장 포화도</td><td>편의점·약국 범람</td><td><span class="tag tag-teal">국내 건기식 공백</span></td></tr>
+          <tr><td>소비자 인식</td><td>"그냥 수면 보조제"</td><td><span class="tag tag-gold">"붉은 금" 프리미엄</span></td></tr>
+          <tr><td>단일 스토리</td><td>수면에 집중</td><td><span class="tag tag-gold">3가지 세로토닌 1경로</span></td></tr>
+          <tr><td>국내 규제</td><td>의약품 분류 ⚠️</td><td><span class="tag tag-teal">식약처 개별인정 ✅</span></td></tr>
+          <tr><td>갱년기 임상</td><td>있음 (간접)</td><td><span class="tag tag-teal">갱년기 여성 직접 임상</span></td></tr>
+          <tr><td>프리미엄 가격</td><td>어려움 (저가 경쟁)</td><td><span class="tag tag-gold">5~8만 원 가능</span></td></tr>
+        </tbody>
+      </table>
+      <div class="card card-gold" style="margin-top: 1.25rem;">
+        <div class="card-label">방향 B · 마케팅 한 줄</div>
+        <p>꽃 150송이에서 단 3가닥, 황금보다 비싼 향신료.<br><strong>그 하나가 갱년기 세 가지 문제를 동시에 잡습니다.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">방향 B · 주의사항 및 확인 필요 항목</div>
+    <div class="grid-2" style="margin-top: 0.5rem;">
+      <div>
+        <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">현대바이오랜드 독점 상용화 여부 확인 → 원료 수급 경로 및 MOQ 협의</div></div>
+        <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">식약처 승인 기능성은 "스트레스 완화" — 수면·다이어트 소구는 표시광고 검토 필요</div></div>
+      </div>
+      <div>
+        <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">사프란 원료가 고가이므로 28mg 유효 함량 유지 시 원가 구조 시뮬레이션 필요</div></div>
+        <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">다이어트 임상은 "식욕 억제" 경로 — "자는 동안 직접 지방 연소" 소구는 멜라토닌/GABA 서브 원료로 보완 권장</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     07. 차별화
+════════════════════════════════════ -->
+<section id="diff" style="background: var(--bg2);">
+  <div class="section-label">07 · 경쟁 차별화</div>
+  <h2 class="section-title">기존 제품과 무엇이 다른가</h2>
+  <p class="section-desc">소비자가 "그냥 기존 제품 사면 되지"라는 생각을 차단하는 세 축의 차별화입니다.</p>
+
+  <div class="grid-3" style="margin-bottom: 2.5rem;">
+    <div class="card card-gold">
+      <div class="card-label">차별화 ① 타겟</div>
+      <h3>갱년기 여성 전용</h3>
+      <p>기존 아쉬와간다·수면 제품의 타겟은 사실상 "스트레스 받는 현대인 전체"입니다. 우리는 갱년기라는 특정 신체 상태를 가진 여성만을 겨냥합니다.<br><br><strong style="color: var(--gold)">소비자 반응 차이:</strong><br>기존 → "나도 스트레스 받으니 먹어볼까?" (낮은 확신)<br>우리 → "이거 나 얘기잖아" (강한 확신)</p>
+    </div>
+    <div class="card card-gold">
+      <div class="card-label">차별화 ② 결과 언어</div>
+      <h3>수단이 아닌 목적</h3>
+      <p>기존 제품은 <strong>"수면 = 목적"</strong>입니다.<br>우리 제품은 <strong>"수면 = 수단, 다이어트 = 목적"</strong>입니다.<br><br>구매 동기가 완전히 달라집니다.<br>· 기존: "스트레스 줄이려고"<br>· 우리: "자는 동안 살을 빼려고"<br><br>카테고리 자체가 <strong>"야간 다이어트"</strong>로 새롭게 정의됩니다.</p>
+    </div>
+    <div class="card card-gold">
+      <div class="card-label">차별화 ③ 섭취 시점</div>
+      <h3>취침 전 전용</h3>
+      <p>기존 아쉬와간다 제품의 대부분은 아침 또는 아침/저녁 분할 복용을 권장합니다.<br><br>우리는 <strong>취침 30분 전 1포</strong>로 단일화합니다.<br><br>이 단순한 차이가 "낮에 먹는 다이어트"와 "밤에 먹는 다이어트"라는 완전히 새로운 카테고리를 만들어냅니다.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem;">포지셔닝 맵 — 기존 경쟁 제품과의 위치</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>제품 유형</th>
+        <th>타겟</th>
+        <th>수면 소구</th>
+        <th>다이어트 소구</th>
+        <th>갱년기 소구</th>
+        <th>야간 복용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>일반 아쉬와간다</td><td>현대인 전체</td><td>✅</td><td>❌</td><td>❌</td><td>❌ (아침)</td></tr>
+      <tr><td>갱년기 건기식 (백수오 등)</td><td>갱년기 여성</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>다이어트 보조제</td><td>다이어트 희망자</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>멜라토닌 수면제</td><td>불면 성인</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr style="background: var(--gold-dim);">
+        <td><strong style="color: var(--gold)">우리 제품 (방향 A or B)</strong></td>
+        <td><strong style="color: var(--gold)">갱년기 여성</strong></td>
+        <td><strong style="color: var(--gold)">✅✅</strong></td>
+        <td><strong style="color: var(--gold)">✅✅</strong></td>
+        <td><strong style="color: var(--gold)">✅✅</strong></td>
+        <td><strong style="color: var(--gold)">✅ (전용)</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════════════════════════════
+     08. 타겟 & 소구 방향
+════════════════════════════════════ -->
+<section id="target">
+  <div class="section-label">08 · 타겟 & 소구 방향</div>
+  <h2 class="section-title">누구에게, 어떻게 말할 것인가</h2>
+
+  <div class="grid-3" style="margin-bottom: 2.5rem;">
+    <div class="card card-teal">
+      <div class="card-label">1순위 타겟</div>
+      <h3>45–55세 갱년기 진입 여성</h3>
+      <p><strong>페인 포인트:</strong> 새벽 각성 + 복부 비만 동시 호소.<br><strong>핵심 소구:</strong> "잠부터 회복해야 살이 빠지는 몸이 됩니다"<br><br>기존 다이어트·수면·갱년기 제품을 따로 먹어봤지만 효과 없는 분. "갱년기라 어쩔 수 없다"는 포기 심리 있는 분.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">2순위 타겟</div>
+      <h3>40대 후반 갱년기 전환기</h3>
+      <p><strong>페인 포인트:</strong> 수면·체중 변화 막 시작, 갱년기 자각 전 단계.<br><strong>핵심 소구:</strong> "지금이 가장 늦지 않은 골든타임"<br><br>예방적 접근. "요즘 왜 이러지?" 단계에서 원인을 알게 해주는 교육적 광고로 진입.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">확장 타겟</div>
+      <h3>30대 후반 만성 스트레스 여성</h3>
+      <p><strong>페인 포인트:</strong> 스트레스성 불면 + 복부지방.<br><strong>핵심 소구:</strong> "갱년기 전부터 미리 관리"<br><br>향후 확장 라인으로 검토. 1차 출시에서는 갱년기 타겟 집중 권장.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.25rem;">최종 광고 로직 흐름 (5단계)</h3>
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <div class="tip-card">
+      <div class="tip-num">①</div>
+      <div class="tip-content">
+        <h4>공감 (Hook)</h4>
+        <p>"45세부터 시작됐어요. 밤 12시에 자도 새벽 3시면 어김없이 눈이 떠집니다. 그리고 어느 날 거울을 봤더니 배만 나와 있더라고요." — 일상 경험 공감으로 즉각 클릭 유도.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">②</div>
+      <div class="tip-content">
+        <h4>문제 재정의 (Reframe)</h4>
+        <p>"갱년기 살 = 호르몬 탓"이 아닙니다. 진짜 범인은 '잠을 못 자는 것'입니다. 대한갱년기학회 — 갱년기 증상이 심한 여성일수록 비만 확률이 높아진다. 대한폐경학회 — 갱년기 증상 1위가 수면장애(58%). 미국 7만 명 연구 — 5시간 미만 수면 여성, 비만 위험 15% 증가.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">③</div>
+      <div class="tip-content">
+        <h4>메커니즘 (개연성 비유)</h4>
+        <p>"공장은 야간에 정비를 합니다. 그래야 다음 날 돌아가요. 우리 몸도 똑같습니다. 자는 동안 지방을 태우고, 식욕 호르몬을 정비하는 시간이 있어야 다음 날이 가벼워집니다. 갱년기 여성은 그 '야간 정비 시간'이 통째로 사라진 것입니다."</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">④</div>
+      <div class="tip-content">
+        <h4>솔루션 등장 (원료 소개)</h4>
+        <p>[방향 A] "스트레스 살 호르몬(코르티솔)을 차단하는 임상 원료 Sensoril® — 갱년기 여성 전용 임상에서 안면홍조 24%, 심리 증상 16% 감소 확인."<br>[방향 B] "세상에서 가장 비싼 향신료 사프란. 단 28mg이 세로토닌을 회복시켜 갱년기·수면·식욕을 동시에 잡습니다. 2026년 식약처 국내 첫 인정 원료."</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">⑤</div>
+      <div class="tip-content">
+        <h4>결과 약속 (Outcome)</h4>
+        <p>"1주차 — 새벽 각성이 줄어듭니다. 2주차 — 아침에 일어났을 때 몸이 가볍습니다. 4주차 — 거울을 다시 보게 됩니다." 단계별 결과 약속으로 지속 복용 동기 부여 및 재구매율 확보.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     09. 방향성 Tip
+════════════════════════════════════ -->
+<section id="tips" style="background: var(--bg2);">
+  <div class="section-label">09 · 마케팅 방향성 Tip</div>
+  <h2 class="section-title">실행 시 반드시 지켜야 할 7가지</h2>
+  <p class="section-desc">기획 과정에서 도출된 광고·상세페이지·원료 소구 방향의 핵심 가이드라인입니다.</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+    <div class="tip-card">
+      <div class="tip-num">1</div>
+      <div class="tip-content">
+        <h4>코르티솔은 경험 언어로 대체</h4>
+        <p>"코르티솔"이라는 의학 용어 대신 <strong>"스트레스 살"</strong> 또는 <strong>"밤의 긴장 신호"</strong> 등 소비자가 이미 겪고 있는 감각 언어로 대체. 의학 용어는 소비자 이탈 유발. 광고 후크에서는 절대 사용 금지.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">2</div>
+      <div class="tip-content">
+        <h4>원료명 전면 노출 금지 (방향 A)</h4>
+        <p>아쉬와간다를 원료명으로 전면에 내세울 경우 소비자가 "그냥 아쉬와간다 싸게 사면 되겠네"로 반응. 광고에서는 <strong>"밤의 긴장 신호를 끄는 원료"</strong> 등 기능 언어 사용. 원료명은 상세페이지 중반 신뢰 구간에서 1회만 노출.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">3</div>
+      <div class="tip-content">
+        <h4>Sensoril® 갱년기 임상 직접 활용 (방향 A)</h4>
+        <p>2025년 Journal of Menopausal Medicine 게재 임상 — "갱년기 여성 대상 250mg 12주 임상에서 안면홍조 24% 감소, 삶의 질 78% 개선". Kerry Group 공식 자료 인용으로 B2C 신뢰 소구. 광고·상세페이지 신뢰 구간에 직접 삽입 가능.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">4</div>
+      <div class="tip-content">
+        <h4>차별화 3축 일관성 유지</h4>
+        <p>기존 아쉬와간다 제품과의 차별화는 <strong>①타겟(갱년기 여성) ②결과(야간 다이어트) ③섭취 시점(취침 전)</strong> 세 축으로 일관되게 소구. 모든 광고·상세페이지·패키지에서 이 세 가지가 동시에 전달돼야 함.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">5</div>
+      <div class="tip-content">
+        <h4>멜라토닌 "야간 지방 연소" 근거 보완 활용</h4>
+        <p>멜라토닌의 폐경 후 여성 체지방 6.9% 감소 임상(Amstrup 2016)과 갈색지방(BAT) 활성화 데이터는 "자는 동안 직접 지방을 태운다"는 직접 소구의 핵심 근거. 방향 A·B 모두에서 서브 원료(타트체리/GABA)로 이 메커니즘을 보완 소구 가능.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">6</div>
+      <div class="tip-content">
+        <h4>Affron® 사프란 원료명 스토리화 (방향 B)</div>
+        <p>"세상에서 가장 비싼 향신료, 붉은 금, 꽃 150송이에서 단 3가닥" — 원료명이 곧 브랜드 스토리가 됩니다. 방향 B는 원료명을 숨기지 않고 오히려 전면에 내세워 프리미엄 포지셔닝. 멜라토닌과 달리 "비싸도 사고 싶다"는 희소성 욕구 자극.</p>
+      </div>
+    </div>
+    <div class="tip-card" style="grid-column: 1 / -1;">
+      <div class="tip-num">7</div>
+      <div class="tip-content">
+        <h4>단일 원료 올인원 스토리 — 최종 추천은 사프란(Affron®) (방향 B 선택 시)</h4>
+        <p>갱년기 증상·수면·야간 지방 연소 세 가지를 <strong>하나의 원료·하나의 기전(세로토닌)</strong>으로 커버하는 데 사프란(Affron®)이 가장 가깝습니다. 멜라토닌 대비 시장 차별화·프리미엄 포지셔닝·국내 규제 안정성 모두 우위. 2026년 2월 식약처 개별인정 승인(국내 최초)으로 선점 타이밍이 왔습니다. 단, 현대바이오랜드 독점 상용화 여부에 따른 원료 수급 경로 즉시 확인 필요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     10. 방향 비교 & 최종 제언
+════════════════════════════════════ -->
+<section id="conclusion">
+  <div class="section-label">10 · 최종 제언</div>
+  <h2 class="section-title">두 방향의 선택 기준</h2>
+  <p class="section-desc">방향 A와 B는 상호 배타적이 아닙니다. 출시 전략에 따라 선택하거나, 라인업을 분리할 수 있습니다.</p>
+
+  <div class="grid-2" style="margin-bottom: 2.5rem;">
+    <div class="card card-teal" style="padding: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+        <div class="direction-badge badge-a" style="width:48px;height:48px;font-size:1.1rem;">A</div>
+        <div>
+          <div style="font-family: var(--serif); font-size: 1.1rem; font-weight: 700;">아쉬와간다 방향</div>
+          <div style="font-size: 12px; color: var(--teal);">복합 원료 · 코르티솔 스토리</div>
+        </div>
+      </div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">원료 수급 안정성 — 아쉬와간다는 공급망 넓음</div></div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">복합 원료로 즉각 체감 강화 가능</div></div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">식약처 갱년기 기능성 표시 확보 가능 (서브 원료)</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">경쟁 원료(아쉬와간다) 인지도로 가격 역쇼핑 리스크</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">단일 스토리보다 복합 구조 — 메시지 단순화 필요</div></div>
+      <hr class="divider" style="margin: 1rem 0;">
+      <div style="font-size: 13px; color: var(--text2);">
+        <strong style="color: var(--text);">이런 전략일 때 선택:</strong><br>
+        초기 시장 검증 속도가 중요할 때 / 원료 수급 리스크를 최소화해야 할 때 / 복합 원료 설계로 기능성 표시를 다양화하고 싶을 때
+      </div>
+    </div>
+
+    <div class="card card-gold" style="padding: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+        <div class="direction-badge badge-b" style="width:48px;height:48px;font-size:1.1rem;">B</div>
+        <div>
+          <div style="font-family: var(--serif); font-size: 1.1rem; font-weight: 700;">사프란 방향</div>
+          <div style="font-size: 12px; color: var(--gold);">단일 원료 · 세로토닌 스토리</div>
+        </div>
+      </div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">단일 기전 스토리 — 광고 메시지 가장 강력</div></div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">국내 경쟁 제품 없음 — 카테고리 선점 기회</div></div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">프리미엄 포지셔닝 — "붉은 금" 스토리로 5~8만 원</div></div>
+      <div class="check-item"><span class="check-icon">✅</span><div class="check-text">식약처 개별인정 완료 (2026년 2월 · 국내 최초)</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">현대바이오랜드 독점 수급 경로 확인 필수</div></div>
+      <div class="check-item"><span class="check-icon">⚠️</span><div class="check-text">다이어트 소구 보완 (서브 원료로 GABA·타트체리 필요)</div></div>
+      <hr class="divider" style="margin: 1rem 0;">
+      <div style="font-size: 13px; color: var(--text2);">
+        <strong style="color: var(--text);">이런 전략일 때 선택:</strong><br>
+        프리미엄 포지셔닝을 원할 때 / 카테고리를 새로 만들고 싶을 때 / 단일 강력 메시지로 바이럴을 노릴 때
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1.5rem;">즉시 실행이 필요한 액션 아이템</h3>
+  <table class="data-table" style="margin-bottom: 2.5rem;">
+    <thead>
+      <tr><th>우선순위</th><th>액션</th><th>방향</th><th>비고</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="pill pill-gold">즉시</span></td><td>현대바이오랜드 Affron® 사프란 원료 수급 가능 여부 및 MOQ 확인</td><td>B</td><td>독점 상용화 구조 파악 후 진행 여부 결정</td></tr>
+      <tr><td><span class="pill pill-gold">즉시</span></td><td>Sensoril® 국내 취급 제조처 (마더네이쳐사이언스 등) 컨택</td><td>A</td><td>함량·원가 시뮬레이션</td></tr>
+      <tr><td><span class="pill pill-blue">1개월</span></td><td>식약처 표시광고 법무 검토: "야간 다이어트", "자는 동안 지방 케어" 표현 가능 여부</td><td>A·B 공통</td><td>인허가팀 협업</td></tr>
+      <tr><td><span class="pill pill-blue">1개월</span></td><td>갱년기 기능성 표시 원료 선택: 회화나무열매추출물 vs 백수오 결정</td><td>A·B 공통</td><td>마케팅·법무 공동 검토</td></tr>
+      <tr><td><span class="pill pill-blue">1개월</span></td><td>제형 결정: 액상 스틱 vs 분말 스틱 (갱년기 여성 선호 조사 포함)</td><td>A·B 공통</td><td>소비자 FGI 또는 설문</td></tr>
+      <tr><td><span class="pill pill-teal">3개월</span></td><td>가격 포지셔닝 결정: 30포 기준 4.9 / 6.9 / 8.9만 원 중 선택</td><td>A·B 공통</td><td>시장 조사 + 원가 역산</td></tr>
+      <tr><td><span class="pill pill-teal">3개월</span></td><td>상세페이지 카피 및 퍼포먼스 광고 소재 개발</td><td>A·B 분리</td><td>본 기획안 로직 기반</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rec-block">
+    <div class="section-label" style="justify-content: center; display: flex;">최종 권고</div>
+    <h2>원료 수급 확인 후 방향 B 선행 검토 권장</h2>
+    <p>
+      방향 B(사프란)는 국내 건기식 시장에서 완전한 공백 카테고리를 선점할 수 있는 기회입니다.
+      식약처 개별인정이 2026년 2월 완료됐고, 경쟁 제품이 사실상 없는 지금이
+      "갱년기 여성을 위한 야간 세로토닌 다이어트"라는 카테고리를 처음 만드는 플레이어가 될 수 있는 골든타임입니다.
+      단, 원료 수급 경로 확보가 불가능할 경우 방향 A(Sensoril)로 즉시 전환 가능하며,
+      방향 A도 갱년기 수면 다이어트 카테고리에서 충분한 차별화 소구력을 보유합니다.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <span class="pill pill-gold">Affron® 수급 확인 → 방향 B 진행</span>
+      <span class="pill pill-teal">수급 불가 → Sensoril 방향 A 즉시 전환</span>
+      <span class="pill pill-blue">장기: A+B 라인 분리 구성</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>갱년기 여성 수면·다이어트 복합 기능 제품 기획안 · 미디어커머스 사업부</div>
+  <div>본 기획안은 공개된 임상 연구 및 학술 자료를 바탕으로 작성됐습니다. 최종 표시광고 문구는 식약처 심의 기준에 따른 법무 검토가 필요합니다.</div>
+</footer>
+
+</body>
+</html>
