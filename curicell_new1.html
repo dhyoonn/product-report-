@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여성 호르몬 밸런스 영양제 — 상품 기획안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090F; --bg2:#0F1420; --card:#1C2540; --card2:#161E33;
+  --gold:#C9A84C; --gold-bright:#E5C76B; --gold-dim:rgba(201,168,76,0.15);
+  --teal:#2DD4BF; --coral:#F4A261; --rose:#E8849B;
+  --text:#EDE8DC; --text2:#9AA5BE; --line:rgba(201,168,76,0.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Noto Sans KR',sans-serif; font-weight:300;
+  line-height:1.75; letter-spacing:-0.01em;
+  overflow-x:hidden;
+}
+.serif{font-family:'Gowun Batang',serif}
+
+/* atmosphere */
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% -5%, rgba(201,168,76,0.10), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(45,212,191,0.06), transparent 60%);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{position:relative; z-index:1}
+
+/* nav */
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(7,9,15,0.82); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:1180px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; gap:28px; flex-wrap:wrap}
+.nav-logo{font-family:'Gowun Batang',serif; font-weight:700; color:var(--gold); font-size:0.96rem; letter-spacing:0.04em; white-space:nowrap}
+.nav-links{display:flex; gap:4px; flex-wrap:wrap; margin-left:auto}
+.nav-links a{
+  color:var(--text2); text-decoration:none; font-size:0.72rem; font-weight:400;
+  padding:6px 11px; border-radius:20px; transition:.25s; white-space:nowrap;
+}
+.nav-links a:hover{color:var(--gold-bright); background:var(--gold-dim)}
+
+/* layout */
+section{max-width:1180px; margin:0 auto; padding:96px 28px 40px}
+.sec-tag{
+  display:inline-flex; align-items:center; gap:10px; margin-bottom:18px;
+  font-size:0.7rem; letter-spacing:0.22em; color:var(--gold); font-weight:500;
+}
+.sec-tag .num{font-family:'Gowun Batang',serif; font-size:1.5rem; opacity:0.5; font-weight:700}
+.sec-tag .line{width:46px; height:1px; background:var(--gold); opacity:0.5}
+h2{font-family:'Gowun Batang',serif; font-weight:700; font-size:clamp(1.6rem,3.6vw,2.5rem); line-height:1.25; margin-bottom:8px}
+.lead{color:var(--text2); font-size:1.02rem; max-width:720px; margin-bottom:36px}
+.hl{color:var(--gold-bright); font-weight:500}
+.hl-teal{color:var(--teal); font-weight:500}
+.hl-coral{color:var(--coral); font-weight:500}
+
+/* HERO */
+.hero{min-height:96vh; display:flex; flex-direction:column; justify-content:center; max-width:1180px; margin:0 auto; padding:120px 28px 60px}
+.hero .eyebrow{font-size:0.78rem; letter-spacing:0.34em; color:var(--gold); margin-bottom:28px; font-weight:500}
+.hero h1{font-family:'Gowun Batang',serif; font-weight:700; font-size:clamp(2.4rem,6.5vw,4.6rem); line-height:1.18; margin-bottom:30px; letter-spacing:-0.02em}
+.hero h1 em{font-style:normal; color:var(--gold-bright); position:relative}
+.hero-sub{font-size:clamp(1.05rem,2.2vw,1.3rem); color:var(--text2); max-width:780px; font-weight:300; line-height:1.7}
+.hero-sub b{color:var(--text); font-weight:500}
+.hero-meta{margin-top:54px; display:flex; gap:36px; flex-wrap:wrap; font-size:0.82rem; color:var(--text2)}
+.hero-meta div span{display:block; color:var(--gold); font-weight:500; font-size:0.72rem; letter-spacing:0.12em; margin-bottom:4px}
+.scroll-cue{margin-top:60px; font-size:0.74rem; color:var(--text2); letter-spacing:0.2em; animation:float 2.4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1; transform:none}
+
+/* stats */
+.stat-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; margin:14px 0 30px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:28px 24px; position:relative; overflow:hidden}
+.stat::before{content:""; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(var(--gold),transparent)}
+.stat-num{font-family:'Gowun Batang',serif; font-weight:700; font-size:2.7rem; color:var(--gold-bright); line-height:1; margin-bottom:10px}
+.stat-num small{font-size:1.1rem; color:var(--gold)}
+.stat-label{font-size:0.86rem; color:var(--text2); line-height:1.6}
+.stat-src{font-size:0.68rem; color:rgba(154,165,190,0.55); margin-top:10px}
+
+/* callout */
+.callout{
+  background:linear-gradient(135deg, var(--gold-dim), rgba(201,168,76,0.03));
+  border:1px solid var(--line); border-radius:18px; padding:32px 34px; margin:28px 0;
+  position:relative;
+}
+.callout .q{font-family:'Gowun Batang',serif; font-size:1.3rem; color:var(--gold-bright); line-height:1.6}
+.callout.center{text-align:center}
+
+/* frame compare */
+.frame-compare{display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:center; margin:28px 0}
+.frame-box{border-radius:16px; padding:26px 28px; height:100%}
+.frame-old{background:var(--card2); border:1px solid rgba(244,162,97,0.25)}
+.frame-new{background:var(--card); border:1px solid var(--gold)}
+.frame-box .ftag{font-size:0.72rem; letter-spacing:0.14em; font-weight:500; margin-bottom:12px}
+.frame-old .ftag{color:var(--coral)}
+.frame-new .ftag{color:var(--gold-bright)}
+.frame-box .ftxt{font-family:'Gowun Batang',serif; font-size:1.22rem; line-height:1.5}
+.frame-arrow{font-size:1.8rem; color:var(--gold); opacity:0.7}
+
+/* mechanism chain */
+.mechanism-chain{display:flex; align-items:stretch; gap:0; flex-wrap:wrap; margin:30px 0; counter-reset:m}
+.m-node{
+  flex:1; min-width:160px; background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:22px 20px; position:relative; margin:8px 18px 8px 0;
+}
+.m-node:last-child{margin-right:0; border-color:var(--gold)}
+.m-node::after{content:"→"; position:absolute; right:-22px; top:50%; transform:translateY(-50%); color:var(--gold); font-size:1.3rem; z-index:2}
+.m-node:last-child::after{display:none}
+.m-node .mi{font-size:0.7rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:8px; font-weight:500}
+.m-node .mt{font-size:0.94rem; font-weight:400; line-height:1.55}
+.m-node .mt b{color:var(--gold-bright); font-weight:500}
+
+/* evidence */
+.evidence{background:var(--card2); border-left:3px solid var(--gold); border-radius:0 14px 14px 0; padding:22px 26px; margin:16px 0}
+.evidence-title{font-size:0.8rem; letter-spacing:0.08em; color:var(--gold); font-weight:500; margin-bottom:8px; display:flex; align-items:center; gap:8px}
+.evidence-title .dot{width:7px; height:7px; border-radius:50%; background:var(--gold)}
+.evidence p{font-size:0.92rem; color:var(--text); line-height:1.65}
+.evidence .src{font-size:0.7rem; color:var(--text2); margin-top:8px}
+.evidence.teal{border-color:var(--teal)} .evidence.teal .evidence-title{color:var(--teal)} .evidence.teal .dot{background:var(--teal)}
+.evidence.coral{border-color:var(--coral)} .evidence.coral .evidence-title{color:var(--coral)} .evidence.coral .dot{background:var(--coral)}
+
+/* translation table */
+.data-table{width:100%; border-collapse:collapse; margin:18px 0; font-size:0.9rem}
+.data-table th{text-align:left; padding:14px 18px; color:var(--gold); font-weight:500; border-bottom:1px solid var(--line); font-size:0.78rem; letter-spacing:0.06em}
+.data-table td{padding:14px 18px; border-bottom:1px solid rgba(154,165,190,0.12); color:var(--text); vertical-align:top}
+.data-table tr:hover td{background:rgba(201,168,76,0.04)}
+.data-table .from{color:var(--text2); font-size:0.85rem}
+.data-table .to{color:var(--gold-bright); font-weight:400}
+.pill{display:inline-block; padding:3px 11px; border-radius:20px; font-size:0.72rem; font-weight:500; white-space:nowrap}
+.pill.ok{background:rgba(45,212,191,0.14); color:var(--teal)}
+.pill.warn{background:rgba(244,162,97,0.16); color:var(--coral)}
+.pill.gold{background:var(--gold-dim); color:var(--gold-bright)}
+
+/* formula box */
+.formula-box{border:1px solid var(--line); border-radius:18px; overflow:hidden; margin:24px 0}
+.formula-row{display:grid; grid-template-columns:200px 1fr; gap:0; border-bottom:1px solid rgba(154,165,190,0.12)}
+.formula-row:last-child{border-bottom:none}
+.formula-row .role{background:var(--card2); padding:24px 24px; display:flex; flex-direction:column; justify-content:center; gap:6px}
+.formula-row .role .rtag{font-size:0.72rem; letter-spacing:0.08em; font-weight:500}
+.formula-row .role .rname{font-family:'Gowun Batang',serif; font-size:1.15rem; color:var(--text)}
+.formula-row .body{padding:24px 26px; background:var(--card)}
+.formula-row .body .fn{font-size:0.92rem; color:var(--text); line-height:1.6}
+.formula-row .body .ev{font-size:0.78rem; color:var(--text2); margin-top:8px; line-height:1.55}
+.formula-row.main{background:linear-gradient(90deg,rgba(201,168,76,0.1),transparent)}
+.formula-row.main .role{background:transparent}
+.formula-row.main .rtag{color:var(--gold-bright)}
+.formula-row.main .rname{color:var(--gold-bright); font-size:1.32rem; font-weight:700}
+.rtag.sub{color:var(--teal)} .rtag.sub2{color:var(--rose)} .rtag.base{color:var(--text2)}
+
+/* logic flow */
+.logic-flow{display:flex; flex-direction:column; gap:0; margin:26px 0}
+.logic-step{display:grid; grid-template-columns:54px 1fr; gap:20px; padding:20px 0; border-bottom:1px dashed rgba(201,168,76,0.18); align-items:start}
+.logic-step:last-child{border-bottom:none}
+.logic-step .ln{font-family:'Gowun Batang',serif; font-size:1.7rem; color:var(--gold); font-weight:700; line-height:1; opacity:0.85}
+.logic-step .lc .lt{font-weight:500; color:var(--gold-bright); margin-bottom:4px; font-size:0.78rem; letter-spacing:0.1em}
+.logic-step .lc .lb{font-size:1.05rem; color:var(--text); line-height:1.55}
+.logic-step .lc .lq{font-family:'Gowun Batang',serif; color:var(--text2); font-size:0.96rem; margin-top:6px; font-style:italic}
+
+/* positioning map */
+.posmap{position:relative; background:var(--card2); border:1px solid var(--line); border-radius:18px; padding:34px; margin:24px 0; aspect-ratio:16/10; min-height:340px}
+.posmap .axis-x,.posmap .axis-y{position:absolute; background:rgba(201,168,76,0.3)}
+.posmap .axis-x{left:34px; right:34px; top:50%; height:1px}
+.posmap .axis-y{top:34px; bottom:34px; left:50%; width:1px}
+.posmap .lbl{position:absolute; font-size:0.72rem; color:var(--gold); letter-spacing:0.06em}
+.posmap .lbl.top{top:14px; left:50%; transform:translateX(-50%)}
+.posmap .lbl.bot{bottom:14px; left:50%; transform:translateX(-50%)}
+.posmap .lbl.lft{left:14px; top:50%; transform:translateY(-50%) rotate(-90deg); transform-origin:left}
+.posmap .lbl.rgt{right:14px; top:50%; transform:translateY(-50%) rotate(90deg); transform-origin:right}
+.dot-brand{position:absolute; padding:8px 14px; border-radius:24px; font-size:0.8rem; font-weight:500; transform:translate(-50%,-50%); white-space:nowrap}
+.dot-brand.us{background:var(--gold); color:#1a1505; box-shadow:0 0 30px rgba(201,168,76,0.5); z-index:5}
+.dot-brand.them{background:var(--card); color:var(--text2); border:1px solid rgba(154,165,190,0.3)}
+
+/* tip cards */
+.tip-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin:24px 0}
+.tip-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; position:relative}
+.tip-num{font-family:'Gowun Batang',serif; font-size:1.3rem; color:var(--gold); font-weight:700; margin-bottom:10px}
+.tip-card p{font-size:0.88rem; color:var(--text); line-height:1.6}
+.tip-card p b{color:var(--gold-bright); font-weight:500}
+
+/* target cards */
+.target-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin:22px 0}
+.tg-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px}
+.tg-card .tgh{font-family:'Gowun Batang',serif; font-size:1.15rem; color:var(--gold-bright); margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--line)}
+.tg-card .row{margin-bottom:12px}
+.tg-card .rk{font-size:0.7rem; color:var(--gold); letter-spacing:0.08em; margin-bottom:3px}
+.tg-card .rv{font-size:0.9rem; color:var(--text); line-height:1.5}
+.tg-card .block-react{font-size:0.84rem; color:var(--coral); background:rgba(244,162,97,0.08); border-radius:8px; padding:8px 12px; margin-top:8px}
+
+/* funnel */
+.funnel{margin:26px 0}
+.funnel-top{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:8px}
+.funnel-chip{background:var(--card); border:1px solid var(--line); border-radius:24px; padding:10px 20px; font-size:0.9rem; color:var(--text)}
+.funnel-conv{text-align:center; padding:18px; color:var(--gold-bright); font-family:'Gowun Batang',serif; font-size:1.1rem}
+.funnel-arrow{text-align:center; color:var(--gold); font-size:1.4rem; opacity:0.6}
+
+/* action items */
+.action-list{display:flex; flex-direction:column; gap:12px; margin:22px 0}
+.action-item{display:flex; gap:16px; align-items:start; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px}
+.action-item .ai-no{font-family:'Gowun Batang',serif; color:var(--gold); font-weight:700; font-size:1.2rem; flex-shrink:0}
+.action-item .ai-body .ait{font-weight:500; color:var(--text); margin-bottom:3px}
+.action-item .ai-body .aid{font-size:0.85rem; color:var(--text2); line-height:1.55}
+
+.warn-box{background:rgba(244,162,97,0.08); border:1px solid rgba(244,162,97,0.3); border-radius:16px; padding:26px 30px; margin:24px 0}
+.warn-box h4{color:var(--coral); font-size:0.95rem; margin-bottom:14px; letter-spacing:0.04em; display:flex; align-items:center; gap:8px}
+.warn-box ul{list-style:none; display:flex; flex-direction:column; gap:10px}
+.warn-box li{font-size:0.88rem; color:var(--text); padding-left:20px; position:relative; line-height:1.55}
+.warn-box li::before{content:"—"; position:absolute; left:0; color:var(--coral)}
+
+.divider{height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:10px auto; max-width:1180px}
+
+footer{max-width:1180px; margin:0 auto; padding:60px 28px 80px; text-align:center; color:var(--text2); font-size:0.8rem; border-top:1px solid var(--line)}
+footer .fbig{font-family:'Gowun Batang',serif; color:var(--gold-bright); font-size:1.3rem; margin-bottom:14px; line-height:1.5}
+
+@media(max-width:760px){
+  .frame-compare{grid-template-columns:1fr; gap:12px}
+  .frame-arrow{transform:rotate(90deg); text-align:center}
+  .formula-row{grid-template-columns:1fr}
+  .m-node{margin-right:0} .m-node::after{display:none}
+  .logic-step{grid-template-columns:40px 1fr; gap:14px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">◆ 여성 호르몬 밸런스 영양제</div>
+    <div class="nav-links">
+      <a href="#s1">시장</a><a href="#s2">로직</a><a href="#s3">근거</a>
+      <a href="#s4">언어</a><a href="#s5">원료</a><a href="#s7">차별화</a>
+      <a href="#s8">타겟</a><a href="#s9">Tip</a><a href="#s10">제언</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="eyebrow reveal in">상품 기획안 · 경영진 보고용 · 미디어커머스</div>
+  <h1 class="reveal in">잠도, 붓기도, 살도 —<br>사실 전부 <em>호르몬</em>이 흔들린다는<br>같은 경보였습니다.</h1>
+  <p class="hero-sub reveal in">표면은 <b>여성 호르몬 밸런스 영양제</b>. 그러나 콘텐츠가 도달시키는 진짜 약속은 <b>"흔들린 호르몬을 잡으면, 안 빠지던 살까지 풀린다"</b>는 것. 갱년기·수면·다이어트 시장 어디에도 없던 단일 포지션을 점유합니다.</p>
+  <div class="hero-meta">
+    <div><span>메인 원료</span>아마씨 리그난 (SDG)</div>
+    <div><span>핵심 서브</span>아쉬와간다 (코르티솔)</div>
+    <div><span>타겟</span>호르몬 기복을 겪는 2030 여성</div>
+    <div><span>전략 축</span>증상 → 호르몬 → 체지방</div>
+  </div>
+  <div class="scroll-cue">SCROLL ↓</div>
+</header>
+
+<!-- 01 시장 배경 -->
+<section id="s1">
+  <div class="sec-tag reveal"><span class="num">01</span><span class="line"></span>시장 배경</div>
+  <h2 class="reveal">'안 빠지는 살'의 진짜 시장은<br>다이어트가 아니라 호르몬입니다.</h2>
+  <p class="lead reveal">기존 갱년기 제품은 타겟이 50대 이상으로 너무 높고, 수면 제품은 '잠'만, 다이어트 제품은 '칼로리'만 다룹니다. 세 시장 모두 <span class="hl">"호르몬이 흔들려서 살이 안 빠진다"</span>는 연결을 비워두고 있습니다.</p>
+  <div class="stat-grid reveal">
+    <div class="stat"><div class="stat-num">불면</div><div class="stat-label">폐경 이행기의 지속적 불면·수면장애 — 기분·에너지·체중에 직접 영향</div><div class="stat-src">Apollo / 분당서울대병원</div></div>
+    <div class="stat"><div class="stat-num">90<small>%+</small></div><div class="stat-label">생리하는 여성이 매월 겪는 PMS — 갱년기보다 빈번하고 대중적</div><div class="stat-src">Apollo Hospitals</div></div>
+    <div class="stat"><div class="stat-num">2,000<small>억</small></div><div class="stat-label">국내 체지방 감소 건기식 시장 규모 (가르시니아 등)</div><div class="stat-src">히트뉴스</div></div>
+    <div class="stat"><div class="stat-num">20~30<small>%</small></div><div class="stat-label">아쉬와간다의 코르티솔 저감 폭 — 스트레스성 복부살 축</div><div class="stat-src">메타분석(9 RCT, 558명)</div></div>
+  </div>
+  <div class="callout reveal"><p class="q">사전 체크리스트 통과 — ① 깊은 니즈(PMS 대중성·빈번성) ② 차별성 수요(잠·살 따로 사던 비용을 하나로) ③ 수익성(4~5만원대 프리미엄 가능). 단, 통과의 전제는 <span class="hl">'갱년기'를 버리고 '호르몬 기복'으로 프레임을 내려잡는 것</span>입니다.</p></div>
+</section>
+<div class="divider"></div>
+
+<!-- 02 핵심 로직 -->
+<section id="s2">
+  <div class="sec-tag reveal"><span class="num">02</span><span class="line"></span>핵심 로직</div>
+  <h2 class="reveal">'의지 부족'이 아니라 '호르몬 탓'<br>— 면죄부가 곧 후크입니다.</h2>
+  <p class="lead reveal">2030 여성에게 "갱년기 약"을 들이밀면 거부 반응이 1순위입니다. 그래서 프레임을 <span class="hl">매달 겪는 호르몬 기복(PMS·스트레스성 흔들림)</span>으로 내려잡고, 문제를 재정의합니다.</p>
+  <div class="frame-compare reveal">
+    <div class="frame-box frame-old"><div class="ftag">기존 프레임</div><div class="ftxt">안 빠지는 살<br>= 의지·식단·운동 부족<br><span style="color:var(--coral);font-size:0.9rem">(→ 자책)</span></div></div>
+    <div class="frame-arrow">→</div>
+    <div class="frame-box frame-new"><div class="ftag">우리 프레임</div><div class="ftxt">안 빠지는 살<br>= 흔들린 여성호르몬<br><span style="color:var(--teal);font-size:0.9rem">(→ 면죄부 + 진짜 원인)</span></div></div>
+  </div>
+  <div class="callout center reveal"><p class="q">"여성호르몬이 흔들려서 살이 안 빠집니다.<br>호르몬을 잡으면 — 불면·붓기도 가라앉고, 그래서 안 빠지던 살이 빠지기 시작합니다."</p></div>
+  <h2 style="font-size:1.3rem;margin-top:40px" class="reveal serif">메커니즘 — "몸의 자동 온도조절기"</h2>
+  <p class="lead reveal" style="margin-bottom:18px">소비자에게 학술 용어 대신 직관 비유로 인과를 보여줍니다.</p>
+  <div class="mechanism-chain reveal">
+    <div class="m-node"><div class="mi">원인</div><div class="mt"><b>여성호르몬(조절기)</b>이 흔들린다</div></div>
+    <div class="m-node"><div class="mi">신호</div><div class="mt">한밤중 <b>잠이 깨고</b>, 이유 없이 <b>붓고</b>, 단 게 <b>당기고</b></div></div>
+    <div class="m-node"><div class="mi">결과</div><div class="mt">기초대사↓ + 지방이 <b>복부로만</b> 옮겨붙음</div></div>
+    <div class="m-node"><div class="mi">함정</div><div class="mt">굶어도·운동해도 <b>안 빠지는 살</b></div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 03 근거 데이터 -->
+<section id="s3">
+  <div class="sec-tag reveal"><span class="num">03</span><span class="line"></span>근거 데이터</div>
+  <h2 class="reveal">연결 고리마다 근거가 있습니다.</h2>
+  <p class="lead reveal">"증상 → 호르몬 → 살" 각 고리를 별도 데이터로 받칩니다. 동물실험·상관연구는 그 한계를 명시합니다.</p>
+  <div class="evidence reveal"><div class="evidence-title"><span class="dot"></span>고리 ① 에스트로겐 ↓ → 복부 지방 축적</div><p>에스트로겐이 낮아지면 기초대사량이 감소하고, 둔부·대퇴의 지방분해효소(리파아제) 활성이 떨어져 지방이 주로 복부에 축적됩니다.</p><p class="src">출처: 시그니처 의학칼럼 / 하이닥 갱년기 대사 자료</p></div>
+  <div class="evidence teal reveal"><div class="evidence-title"><span class="dot"></span>고리 ② 메인 원료 — 리그난의 양방향 호르몬 조절</div><p>아마씨 리그난(SDG)은 장내세균을 거쳐 엔테로락톤으로 전환되며, 호르몬이 낮으면 약하게 채우고 과하면 억제하는 <b>양방향 조절자(SERM 유사)</b>로 작동합니다. "보충"이 아닌 "밸런스" 컨셉의 근거.</p><p class="src">출처: VitaLibrary / Cureus 갱년기 RCT 리뷰</p></div>
+  <div class="evidence teal reveal"><div class="evidence-title"><span class="dot"></span>고리 ③ 호르몬 ↔ 살 — 리그난 수치와 체지방의 연결</div><p>혈중 엔테로락톤(리그난 대사체)이 높은 여성일수록 BMI와 총 체지방이 낮다는 연구가 있습니다. <b>단, 이는 상관관계 관찰연구이며 인과 입증 RCT는 아닙니다.</b> 콘텐츠 서사로는 활용 가능하나 "빠진다"는 단정 표현은 지양합니다.</p><p class="src">출처: 영양 연구 리뷰 (관찰연구)</p></div>
+  <div class="evidence coral reveal"><div class="evidence-title"><span class="dot"></span>고리 ④ 두 번째 호르몬 축 — 코르티솔</div><p>아쉬와간다는 다수 RCT 메타분석에서 혈중 코르티솔을 20~30% 낮추고, 수면·스트레스를 개선합니다. 만성 코르티솔 상승은 복부 체중 증가를 부르므로, 에스트로겐에 더해 <b>"살을 붙잡는 두 번째 호르몬"</b>을 함께 잡습니다.</p><p class="src">출처: NIH ODS Fact Sheet / ScienceDirect 메타분석</p></div>
+</section>
+<div class="divider"></div>
+
+<!-- 04 마케팅 언어 -->
+<section id="s4">
+  <div class="sec-tag reveal"><span class="num">04</span><span class="line"></span>마케팅 언어 체계</div>
+  <h2 class="reveal">의학어를 소비자 경험어로 번역합니다.</h2>
+  <p class="lead reveal">"이 단어를 설명 없이 쓸 수 있는가"가 검수 기준. 학술 용어가 남으면 신뢰가 아니라 이탈로 이어집니다.</p>
+  <table class="data-table reveal">
+    <thead><tr><th>의학·과학 표현</th><th>소비자 경험 언어</th></tr></thead>
+    <tbody>
+      <tr><td class="from">에스트로겐 저하성 복부비만</td><td class="to">굶어도 배만 나오는 것</td></tr>
+      <tr><td class="from">야간 코르티솔 미저하·불면</td><td class="to">새벽에 어김없이 깨는 것</td></tr>
+      <tr><td class="from">황체기 식욕 항진</td><td class="to">갑자기 단 게 미친듯이 당기는 것</td></tr>
+      <tr><td class="from">엔테로락톤·SERM 양방향 조절</td><td class="to">흔들리는 조절기를 잡아주는 것</td></tr>
+    </tbody>
+  </table>
+  <div class="warn-box reveal">
+    <h4>⚠ 콘텐츠 / 표시광고 이원화 (필수 분리)</h4>
+    <ul>
+      <li><b>표면(패키지·상세페이지):</b> "여성 호르몬 밸런스 영양제"로 끝. '다이어트'·'갱년기' 단어 미사용, 보수적 표현.</li>
+      <li><b>콘텐츠(광고·SNS·후기):</b> "호르몬 잡았더니 살이 따라 빠지더라"는 경험 서사로만 다이어트를 전달.</li>
+      <li>원료명(리그난·아쉬와간다)은 후크에 노출 금지 → 검색 이탈 방지. 상세 중반 신뢰 구간에서 1회만.</li>
+    </ul>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 05 원료 설계 -->
+<section id="s5">
+  <div class="sec-tag reveal"><span class="num">05</span><span class="line"></span>원료 설계</div>
+  <h2 class="reveal">한 원료가 '호르몬'과 '살'을<br>동시에 잇습니다.</h2>
+  <p class="lead reveal">후크의 주인공은 <span class="hl">리그난 하나</span>. 백수오(갱년기 색)를 버리고, 호르몬 밸런스와 체지방을 한 원료 안에서 잇는 <span class="hl">올인원 단일 원료 스토리</span>로 메시지를 통일했습니다.</p>
+  <div class="formula-box reveal">
+    <div class="formula-row main">
+      <div class="role"><div class="rtag">⭐ 메인 원료 (단 1개)</div><div class="rname">아마씨 리그난 (SDG)</div></div>
+      <div class="body"><div class="fn">에스트로겐 양방향 밸런스 <b>+</b> 체지방 연결을 단독으로 커버. 후크의 주인공.</div><div class="ev">근거: 양방향 호르몬 조절(SERM 유사) · 엔테로락톤↑ ↔ 체지방↓ 상관연구 · 갱년기 색이 없어 2030 포지션에 적합</div></div>
+    </div>
+    <div class="formula-row">
+      <div class="role"><div class="rtag sub">서브 ① · 즉각 체감 + 2번째 호르몬축</div><div class="rname">아쉬와간다</div></div>
+      <div class="body"><div class="fn">코르티솔↓ → 불면·스트레스·스트레스성 복부살을 1~2주 내 체감.</div><div class="ev">근거: 메타분석 코르티솔 20~30%↓, 수면 1~2주 / 코르티솔 정상화 60일 → "1주 체감·장기 근본" 시간축과 일치. 저녁 섭취형.</div></div>
+    </div>
+    <div class="formula-row">
+      <div class="role"><div class="rtag sub2">서브 ② · 보조</div><div class="rname">마그네슘 + 비타민 B6</div></div>
+      <div class="body"><div class="fn">생리 전 붓기·근육 긴장·폭식·기분 변동 보완.</div><div class="ev">근거: 마그네슘 = PMS 수면·붓기·유방통 완화, B6 = 세로토닌↑로 황체기 폭식·우울 완화</div></div>
+    </div>
+    <div class="formula-row">
+      <div class="role"><div class="rtag base">확장 보류 · 2차 라인</div><div class="rname">(이노시톨)</div></div>
+      <div class="body"><div class="fn">인슐린 감수성 축. 1차 출시 <b>보류</b> 권장.</div><div class="ev">제외 이유: 근거가 대부분 PCOS·생리불순 맥락 → 제품 정체성이 'PCOS 영양제'로 흔들리고 질환 효능 표방 규제 리스크. 40대·인슐린저항 경향군 확장 시 재검토.</div></div>
+    </div>
+  </div>
+  <p class="lead reveal" style="margin-top:8px">제형: <span class="hl">저녁 1포(액상 스틱/정제)</span> — "밤에 흔들리는 호르몬"이라는 스토리와 섭취 시점을 일치시켜 차별 축(섭취 시점)을 확보합니다.</p>
+</section>
+<div class="divider"></div>
+
+<!-- 07 경쟁 차별화 -->
+<section id="s7">
+  <div class="sec-tag reveal"><span class="num">06</span><span class="line"></span>경쟁 차별화</div>
+  <h2 class="reveal">세 시장 사이의 빈 공간을 점유합니다.</h2>
+  <p class="lead reveal">"근본 원인을 잡는가" × "타겟이 젊은가" 두 축에서 우리만 빈 사분면에 섭니다.</p>
+  <div class="posmap reveal">
+    <div class="axis-x"></div><div class="axis-y"></div>
+    <div class="lbl top">근본 원인(호르몬)을 잡음</div>
+    <div class="lbl bot">증상만 가림</div>
+    <div class="lbl lft">타겟 2030</div>
+    <div class="lbl rgt">타겟 50대+</div>
+    <div class="dot-brand us" style="top:24%;left:30%">우리 제품</div>
+    <div class="dot-brand them" style="top:30%;left:74%">갱년기 영양제</div>
+    <div class="dot-brand them" style="top:72%;left:34%">수면 영양제</div>
+    <div class="dot-brand them" style="top:78%;left:62%">다이어트 보조제</div>
+  </div>
+  <table class="data-table reveal">
+    <thead><tr><th>경쟁군</th><th>접근</th><th>한계 (우리의 공격 포인트)</th></tr></thead>
+    <tbody>
+      <tr><td>갱년기 영양제</td><td class="from">호르몬 균형</td><td>타겟 50대+, 다이어트는 절대 안 엮음 <span class="pill warn">나이 갭</span></td></tr>
+      <tr><td>수면 영양제</td><td class="from">잠을 오게 함</td><td>깨는 원인(호르몬)은 안 건드림 <span class="pill warn">증상만</span></td></tr>
+      <tr><td>다이어트 보조제</td><td class="from">지방 합성 차단</td><td>왜 안 빠지는지(호르몬) 설명 못 함 <span class="pill warn">원인 부재</span></td></tr>
+      <tr><td><b style="color:var(--gold-bright)">우리 제품</b></td><td class="to">호르몬 밸런스 → 살</td><td><span class="pill gold">원인 + 젊은 타겟 + 단일 스토리</span></td></tr>
+    </tbody>
+  </table>
+</section>
+<div class="divider"></div>
+
+<!-- 08 타겟 & 소구 -->
+<section id="s8">
+  <div class="sec-tag reveal"><span class="num">07</span><span class="line"></span>타겟 & 소구 방향</div>
+  <h2 class="reveal">넓게 노출하고, 한 점으로 수렴합니다.</h2>
+  <p class="lead reveal">여러 증상 타겟을 입구로 받되, "전부 호르몬이 흔들린다는 같은 신호"로 묶어 단일 원료로 수렴시키는 깔때기 구조입니다. <span class="hl-coral">생리불순은 규제·안전상 입구에서 제외</span>합니다.</p>
+  <div class="funnel reveal">
+    <div class="funnel-top">
+      <span class="funnel-chip">불면 😴</span>
+      <span class="funnel-chip">스트레스·피로 😮‍💨</span>
+      <span class="funnel-chip">이유 없는 붓기·폭식</span>
+      <span class="funnel-chip">안 빠지는 뱃살</span>
+    </div>
+    <div class="funnel-arrow">↓</div>
+    <div class="funnel-conv">"따로따로처럼 보이지만, 전부 여성호르몬이라는 조절기 하나가 흔들린다는 같은 경보"</div>
+    <div class="funnel-arrow">↓</div>
+    <div class="funnel-top"><span class="funnel-chip" style="border-color:var(--gold)">리그난 + 아쉬와간다로 조절기를 잡는다</span></div>
+  </div>
+  <div class="target-grid reveal">
+    <div class="tg-card">
+      <div class="tgh">메인 타겟</div>
+      <div class="row"><div class="rk">행동 패턴</div><div class="rv">요즘 들어 이유 없이 붓고·폭식하고·잠 설치는 30대 초중반 직장 여성. 야근·불규칙 수면.</div></div>
+      <div class="row"><div class="rk">핵심 소구</div><div class="rv">"노력 부족이 아니라 호르몬 탓" — 면죄부</div></div>
+      <div class="block-react">차단할 반응: "다이어트 보조제로 충분" → 그 살은 칼로리가 아니라 호르몬 문제</div>
+    </div>
+    <div class="tg-card">
+      <div class="tgh">서브 타겟</div>
+      <div class="row"><div class="rk">행동 패턴</div><div class="rv">40대 초중반, 본격 호르몬 저하 진입기. "예전엔 빠졌는데 요즘 안 빠진다"</div></div>
+      <div class="row"><div class="rk">핵심 소구</div><div class="rv">"지금이 갈림길" — 위계 메시지 (라인 확장용)</div></div>
+      <div class="block-react">차단할 반응: "병원 호르몬치료 하면 되지" → 매일 관리형·비호르몬 포지션</div>
+    </div>
+  </div>
+  <h2 style="font-size:1.3rem;margin-top:36px" class="reveal serif">광고 로직 5단계 흐름</h2>
+  <div class="logic-flow reveal">
+    <div class="logic-step"><div class="ln">①</div><div class="lc"><div class="lt">공감 (HOOK)</div><div class="lb">"요즘 들어 이유 없이 붓고, 새벽에 깨고, 단 게 미친듯이 당기지 않나요?"</div></div></div>
+    <div class="logic-step"><div class="ln">②</div><div class="lc"><div class="lt">문제 재정의</div><div class="lb">"그거 의지 문제 아니에요. 여성호르몬이 흔들려서예요."</div></div></div>
+    <div class="logic-step"><div class="ln">③</div><div class="lc"><div class="lt">메커니즘</div><div class="lb">"호르몬 = 몸의 자동조절기. 고장 나면 잠 깨고, 단 게 당기고, 연료가 뱃살로."</div></div></div>
+    <div class="logic-step"><div class="ln">④</div><div class="lc"><div class="lt">솔루션 등장</div><div class="lb">"그래서 흔들리는 조절기 자체를 잡습니다 — 리그난 + 아쉬와간다."</div></div></div>
+    <div class="logic-step"><div class="ln">⑤</div><div class="lc"><div class="lt">결과 약속 (시간축)</div><div class="lb">1주 — 잠·붓기 / 4주~ — 호르몬 밸런스 / 8주~ — 안 빠지던 뱃살</div><div class="lq">즉각 체감은 서브원료가, 근본·장기는 메인 리그난이 — 1:1 미스매치 제거</div></div></div>
+  </div>
+  <div class="callout reveal"><p class="q">공포소구: "요즘 들어 자꾸 붓고 잠을 설치신다면, 이 호르몬 기복을 방치하면 살이 '복부로만' 옮겨붙기 시작합니다. 더 무서운 건 — 이 살은 굶어도·운동해도 잘 안 빠진다는 것입니다." <span style="font-size:0.78rem;color:var(--text2)">(표시광고 수위는 법무 검토 후 확정)</span></p></div>
+</section>
+<div class="divider"></div>
+
+<!-- 09 방향성 Tip -->
+<section id="s9">
+  <div class="sec-tag reveal"><span class="num">08</span><span class="line"></span>마케팅 방향성 Tip</div>
+  <h2 class="reveal">이 기획에서 도출된 실행 원칙</h2>
+  <div class="tip-grid reveal">
+    <div class="tip-card"><div class="tip-num">Tip 1</div><p><b>'갱년기'를 버리고 '호르몬 기복'으로.</b> 2030에게 갱년기는 거부 트리거. 매달 겪는 PMS·스트레스 흔들림으로 프레임을 내려잡아야 공감이 열린다.</p></div>
+    <div class="tip-card"><div class="tip-num">Tip 2</div><p><b>여러 증상 → 단일 원인 → 단일 원료.</b> 증상을 나열만 하면 만병통치로 의심. "같은 경보"라는 공통분모로 못박아 비약이 아닌 통합으로 읽히게 한다.</p></div>
+    <div class="tip-card"><div class="tip-num">Tip 3</div><p><b>체감과 근본을 시간축으로 분리.</b> 불면·붓기(서브원료, 1주)와 호르몬·살(메인, 4주+)을 결과약속에서 나누면 원료-증상 1:1 미스매치가 사라진다.</p></div>
+    <div class="tip-card"><div class="tip-num">Tip 4</div><p><b>두 개의 호르몬 언어.</b> 에스트로겐(리그난)에 코르티솔(아쉬와간다)을 더해 깔때기 입구를 넓히되, 후크 주인공은 리그난 1개로 고정한다.</p></div>
+    <div class="tip-card"><div class="tip-num">Tip 5</div><p><b>상관연구는 단정하지 않는다.</b> "엔테로락톤↑↔체지방↓"는 인과가 아닌 상관. 콘텐츠 서사로 쓰되 "빠진다" 단정은 광고심의 리스크.</p></div>
+    <div class="tip-card"><div class="tip-num">Tip 6</div><p><b>표시광고와 콘텐츠 이원화.</b> 표면은 "호르몬 밸런스"로 보수적, 다이어트는 100% 콘텐츠 경험서사에서. 원료명은 후크 노출 금지.</p></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 10 최종 제언 -->
+<section id="s10">
+  <div class="sec-tag reveal"><span class="num">09</span><span class="line"></span>최종 제언</div>
+  <h2 class="reveal">출시 전, 단 4가지를 먼저 검증.</h2>
+  <p class="lead reveal">로직·포지셔닝·원료(리그난 메인 + 아쉬와간다) 모두 실행을 권장합니다. 다음 액션 아이템을 인허가·R&D와 병렬로 진행하면 됩니다.</p>
+  <div class="action-list reveal">
+    <div class="action-item"><div class="ai-no">01</div><div class="ai-body"><div class="ait">리그난 흡수·표준화 규격 확인 <span class="pill gold">R&D</span></div><div class="aid">SDG→엔테로락톤 전환은 장내세균 의존(개인차 큼). 표준화 추출물(7-HMR 등) 함량 규격과 국내 공급처·단가 확보.</div></div></div>
+    <div class="action-item"><div class="ai-no">02</div><div class="ai-body"><div class="ait">아쉬와간다 주의문구·형태 확인 <span class="pill warn">인허가</span></div><div class="aid">임산부·갑상선질환자 주의, 드문 간독성 보고 → 주의문구 필수. 국내 '긴장완화' 개별인정 원료이므로 일반식품/건기식 형태에 따라 표시 범위 상이.</div></div></div>
+    <div class="action-item"><div class="ai-no">03</div><div class="ai-body"><div class="ait">표시광고 경계 검토 <span class="pill warn">법무</span></div><div class="aid">일반식품은 '호르몬·다이어트' 직접 표현 불가. 표면 카피는 보수적으로, 콘텐츠 서사와 명확히 분리. Claude는 법적 판단을 내리지 않음 — 법무·인허가팀 검토 필수.</div></div></div>
+    <div class="action-item"><div class="ai-no">04</div><div class="ai-body"><div class="ait">깔때기 수렴 메시지 검증 <span class="pill gold">기획</span></div><div class="aid">여러 증상(불면·붓기·폭식·살)을 "같은 호르몬 신호"로 묶는 메시지가 만병통치로 오인되지 않는지 사전 소비자 반응 테스트. 공통분모 카피를 1~2개로 압축해 신뢰도를 확보한다.</div></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fbig">"잠도, 붓기도, 살도 — 조절기 하나를 잡으면 됩니다."</div>
+  <div>여성 호르몬 밸런스 영양제 · 상품 기획안 (경영진 보고용)</div>
+  <div style="margin-top:8px;font-size:0.72rem;opacity:0.6">메인: 아마씨 리그난 · 서브: 아쉬와간다 · 본 문서의 의학·규제 표현은 출시 전 법무·인허가팀 검토를 전제로 합니다.</div>
+</footer>
+
+</div>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{io.observe(el)});
+</script>
+</body>
+</html>
