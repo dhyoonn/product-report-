@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>질 건강 제품 글로벌 인허가 전략 검토</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2238;
+    --ink-soft: #3d4663;
+    --paper: #f4f1ea;
+    --paper-warm: #ece6d8;
+    --card: #ffffff;
+    --accent: #2f5d50;
+    --accent-soft: #5b8576;
+    --gold: #b08d57;
+    --red: #9c3a3a;
+    --amber: #b5762a;
+    --green: #3f7a5c;
+    --line: #d8d2c4;
+    --shadow: 0 4px 24px rgba(26,34,56,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'IBM Plex Sans KR', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .deck { width:100%; }
+  .slide {
+    min-height:100vh;
+    padding:64px 80px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .slide-num {
+    position:absolute; top:36px; right:48px;
+    font-size:13px; letter-spacing:0.15em; color:var(--ink-soft);
+    font-weight:500; opacity:0.6;
+  }
+  .kicker {
+    font-size:13px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; margin-bottom:18px;
+  }
+  h1 {
+    font-family:'Gowun Batang', serif;
+    font-size:56px; line-height:1.25; font-weight:700;
+    letter-spacing:-0.01em; margin-bottom:24px;
+  }
+  h2 {
+    font-family:'Gowun Batang', serif;
+    font-size:38px; line-height:1.3; font-weight:700;
+    margin-bottom:32px; letter-spacing:-0.01em;
+  }
+  h3 { font-size:20px; font-weight:600; margin-bottom:12px; }
+  p { font-size:16px; color:var(--ink-soft); }
+  .lead { font-size:20px; color:var(--ink-soft); max-width:780px; }
+
+  /* Cover */
+  .cover { background:linear-gradient(150deg,#1a2238 0%,#243049 55%,#2f5d50 140%); color:var(--paper); justify-content:center; }
+  .cover::before {
+    content:''; position:absolute; inset:0;
+    background-image:radial-gradient(circle at 18% 30%, rgba(176,141,87,0.18), transparent 42%),
+                     radial-gradient(circle at 85% 78%, rgba(91,133,118,0.22), transparent 46%);
+  }
+  .cover .inner { position:relative; z-index:1; }
+  .cover .kicker { color:var(--gold); }
+  .cover h1 { color:#fff; font-size:64px; margin-bottom:28px; }
+  .cover .lead { color:rgba(244,241,234,0.82); }
+  .cover .meta {
+    margin-top:56px; display:flex; gap:48px; flex-wrap:wrap;
+    border-top:1px solid rgba(244,241,234,0.2); padding-top:28px;
+  }
+  .cover .meta div span { display:block; }
+  .cover .meta .lbl { font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .cover .meta .val { font-size:17px; color:#fff; font-weight:500; }
+
+  /* Generic layout helpers */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .card {
+    background:var(--card); border:1px solid var(--line);
+    border-radius:14px; padding:28px; box-shadow:var(--shadow);
+  }
+  .card.flat { box-shadow:none; }
+  .card .tag {
+    display:inline-block; font-size:12px; font-weight:600; letter-spacing:0.08em;
+    padding:4px 12px; border-radius:20px; margin-bottom:14px;
+  }
+  .tag-green { background:#e3efe7; color:var(--green); }
+  .tag-amber { background:#f5ead8; color:var(--amber); }
+  .tag-red { background:#f2e0e0; color:var(--red); }
+  .tag-ink { background:#e5e7ee; color:var(--ink); }
+
+  ul.clean { list-style:none; }
+  ul.clean li { position:relative; padding-left:22px; margin-bottom:12px; font-size:16px; color:var(--ink-soft); }
+  ul.clean li::before { content:''; position:absolute; left:2px; top:11px; width:7px; height:7px; border-radius:50%; background:var(--accent-soft); }
+  ul.clean li strong { color:var(--ink); font-weight:600; }
+
+  /* Tables */
+  table { width:100%; border-collapse:collapse; font-size:14.5px; background:var(--card); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); }
+  th { background:var(--ink); color:#fff; text-align:left; padding:14px 16px; font-weight:600; font-size:13.5px; letter-spacing:0.02em; }
+  td { padding:13px 16px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#faf8f3; }
+  td strong { color:var(--ink); }
+  .chk { color:var(--green); font-weight:700; }
+  .crs { color:var(--red); font-weight:700; }
+
+  /* Level ladder */
+  .ladder { display:flex; flex-direction:column; gap:14px; }
+  .rung { display:flex; align-items:stretch; gap:0; border-radius:12px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line); }
+  .rung .lv { display:flex; align-items:center; justify-content:center; min-width:120px; font-family:'Gowun Batang',serif; font-size:26px; font-weight:700; color:#fff; }
+  .rung .body { background:var(--card); padding:20px 26px; flex:1; }
+  .lv1 { background:#9aa0b0; }
+  .lv2 { background:var(--accent-soft); }
+  .lv3 { background:var(--accent); }
+  .rung.current { border:2px solid var(--gold); }
+  .rung .body .now { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--gold); border:1px solid var(--gold); border-radius:20px; padding:2px 10px; margin-left:10px; vertical-align:middle; }
+
+  /* Tension / conflict cards */
+  .conflict { background:var(--card); border-left:4px solid var(--gold); border-radius:0 12px 12px 0; padding:22px 26px; box-shadow:var(--shadow); }
+  .conflict h3 { color:var(--ink); }
+  .vs { display:flex; gap:18px; align-items:center; margin-top:12px; }
+  .vs .opt { flex:1; background:#faf8f3; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .vs .opt .who { font-size:12px; font-weight:600; color:var(--accent); letter-spacing:0.04em; margin-bottom:4px; }
+  .vs .mid { font-family:'Gowun Batang',serif; font-style:italic; color:var(--gold); font-size:18px; }
+
+  /* Decision criteria */
+  .crit { display:flex; gap:18px; margin-bottom:20px; align-items:flex-start; }
+  .crit .no { font-family:'Gowun Batang',serif; font-size:34px; font-weight:700; color:var(--gold); line-height:1; min-width:48px; }
+  .crit .txt h3 { margin-bottom:6px; }
+
+  /* Glossary */
+  .term { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 24px; box-shadow:var(--shadow); }
+  .term .name { font-family:'Gowun Batang',serif; font-size:21px; font-weight:700; color:var(--accent); margin-bottom:4px; }
+  .term .sub { font-size:12.5px; color:var(--gold); font-weight:600; letter-spacing:0.05em; margin-bottom:10px; }
+  .term p { font-size:14.5px; }
+
+  .footnote { margin-top:28px; font-size:13px; color:var(--ink-soft); opacity:0.7; font-style:italic; }
+  .highlight { background:linear-gradient(180deg,transparent 60%, rgba(176,141,87,0.32) 60%); font-weight:600; color:var(--ink); }
+
+  .two-col-text { columns:2; column-gap:48px; }
+  .pill-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+  .pill { font-size:13px; padding:6px 14px; border-radius:20px; background:var(--paper-warm); color:var(--ink-soft); border:1px solid var(--line); }
+
+  @media print {
+    .slide { min-height:100vh; page-break-after:always; }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 1. COVER -->
+  <section class="slide cover">
+    <div class="inner">
+      <div class="kicker">경영진 보고 · 제품 인허가 전략</div>
+      <h1>질 건강 유산균 제품<br>글로벌 인허가 전략 검토</h1>
+      <p class="lead">화장품에서 의료기기로 — 전 세계 주요 국가에서 "질내 삽입 + 질 건강 효능"을 공식적으로 주장하기 위한 분류 전략과 의사결정 기준</p>
+      <div class="meta">
+        <div><span class="lbl">목표</span><span class="val">주요국 최소 Lv2, 최대 효능 클레임 확보</span></div>
+        <div><span class="lbl">자문</span><span class="val">Cisema · 씨앤에스 · 메디가이드</span></div>
+        <div><span class="lbl">작성</span><span class="val">2026. 06</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 배경과 목표 -->
+  <section class="slide">
+    <span class="slide-num">02</span>
+    <div class="kicker">왜 지금 이 논의를 하는가</div>
+    <h2>현재 제품은 "쓰는 법"을 말할 수 없다</h2>
+    <div class="grid-2" style="align-items:start; gap:40px;">
+      <div>
+        <ul class="clean">
+          <li>자사 제품은 <strong>질에 직접 주입해 사용하는 유산균 제품</strong>이지만, 현재 분류는 <strong>화장품</strong>이다.</li>
+          <li>화장품으로는 "질내 직접 주입" 사용법을 공식적으로 표현하는 것 자체가 <strong>법적으로 문제가 된다.</strong></li>
+          <li>그 결과 대부분의 국가에서 <strong>Lv1(feminine freshness 수준)</strong>으로만 판매 중이다.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent);">목표 상태</h3>
+        <p style="margin-bottom:14px;">전 세계 주요 국가에서 —</p>
+        <ul class="clean">
+          <li><strong>최소 Lv2 이상</strong> 확보 (질내 삽입을 공식적으로 안내 가능)</li>
+          <li><strong>Lv3에서 가능한 최대 효능 클레임</strong> 확보 (pH·냄새·질 환경 등)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote">이 보고서는 세 곳의 인허가 컨설팅사 자문 결과를 종합해, 경영진이 결정해야 할 쟁점과 판단 기준을 정리한 것이다.</p>
+  </section>
+
+  <!-- 3. 클레임 레벨 사다리 -->
+  <section class="slide" style="background:var(--paper-warm);">
+    <span class="slide-num">03</span>
+    <div class="kicker">우리가 오르려는 사다리</div>
+    <h2>클레임 3단계 — 지금 어디에 있고 어디로 가는가</h2>
+    <div class="ladder">
+      <div class="rung current">
+        <div class="lv lv1">Lv 1</div>
+        <div class="body">
+          <h3>질내 삽입을 공식적으로 말할 수 없음 <span class="now">현재 위치</span></h3>
+          <p>화장품 등급. "feminine freshness" 정도의 표현만 가능.</p>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="lv lv2">Lv 2</div>
+        <div class="body">
+          <h3>질내 삽입하여 쓰는 제품이라고 공식 안내 가능</h3>
+          <p>예: 국내 기준 개인용 윤활제(의료기기 3등급). 사용법은 말할 수 있으나 효능 주장은 제한.</p>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="lv lv3">Lv 3</div>
+        <div class="body">
+          <h3>특정 효능·효과를 주장 가능</h3>
+          <p>예: pH 관리, 유해균 관리, 질염 개선·예방 등. 가장 높은 가치이자 가장 높은 규제 장벽.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 핵심 통찰: 물리적 vs 화학적 -->
+  <section class="slide cover" style="justify-content:center;">
+    <span class="slide-num" style="color:rgba(244,241,234,0.5);">04</span>
+    <div class="inner">
+      <div class="kicker">이 프로젝트 전체를 가르는 단 하나의 기준</div>
+      <h1 style="font-size:50px;">"효능"이 아니라<br>"<span style="color:var(--gold);">작용 기전</span>"이 분류를 결정한다</h1>
+      <div class="grid-2" style="margin-top:36px; gap:32px;">
+        <div class="card" style="background:rgba(255,255,255,0.07); border-color:rgba(244,241,234,0.2);">
+          <span class="tag tag-green">의료기기 경로</span>
+          <h3 style="color:#fff;">물리적 작용</h3>
+          <p style="color:rgba(244,241,234,0.78);">마찰을 줄여 윤활한다 · 수분을 공급한다 · 물리적 보호막을 만든다 · 흡착으로 냄새를 제거한다 → <strong style="color:#fff;">빠르고 저비용</strong></p>
+        </div>
+        <div class="card" style="background:rgba(156,58,58,0.18); border-color:rgba(244,241,234,0.2);">
+          <span class="tag tag-red">의약품 재분류 위험</span>
+          <h3 style="color:#fff;">화학적 작용</h3>
+          <p style="color:rgba(244,241,234,0.78);">화학적으로 pH를 바꾼다 · 감염을 예방한다 · 질염을 치료한다 → <strong style="color:#fff;">임상·비용·기간 급증</strong></p>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:32px; color:rgba(244,241,234,0.82);">같은 "냄새 제거"라도 <span style="color:var(--gold);">흡착(물리적)</span>으로 설명하면 의료기기, <span style="color:var(--gold);">화학 작용</span>으로 주장하면 의약품이 된다. 우리의 락토바실러스 발효물이 제품 안에서 <strong style="color:#fff;">무슨 일을 하는가</strong>가 모든 것을 결정한다.</p>
+    </div>
+  </section>
+
+  <!-- 5. 클레임별 리스크 -->
+  <section class="slide">
+    <span class="slide-num">05</span>
+    <div class="kicker">무엇을 주장할 수 있고, 그 대가는 무엇인가</div>
+    <h2>클레임별 규제 리스크 지도</h2>
+    <table>
+      <thead>
+        <tr><th style="width:18%;">클레임</th><th style="width:24%;">작용 기전 성격</th><th style="width:12%;">리스크</th><th>대응 방향</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>보습 / 윤활</strong></td><td>물리적 수분공급·윤활</td><td><span class="tag tag-green" style="margin:0;">저</span></td><td>가장 안전. <strong>핵심 클레임으로 권장.</strong> 수분도 측정 등 임상 설계가 명확.</td></tr>
+        <tr><td><strong>질내 환경 개선</strong></td><td>모호 (기전 정의 필요)</td><td><span class="tag tag-amber" style="margin:0;">중</span></td><td>"물리적 보호막·수분 유지"로 한정해야 가능. 화학작용 암시 시 위험 상승.</td></tr>
+        <tr><td><strong>pH 조절</strong></td><td>화학적 작용 가능성</td><td><span class="tag tag-red" style="margin:0;">고</span></td><td>미국=drug, EU=medicinal product 경계. "물리적" 한정 가능성 검토 필요.</td></tr>
+        <tr><td><strong>냄새 제거</strong></td><td>화학적 작용 가능성</td><td><span class="tag tag-red" style="margin:0;">고</span></td><td>"흡착·물리적 제거" 기전으로 한정 시도해볼 여지.</td></tr>
+        <tr><td><strong>탄력 회복</strong></td><td>생리·구조 변화 암시</td><td><span class="tag tag-red" style="margin:0;">고</span></td><td>기전 입증 난도 높음. 근거 미확보 시 과대광고 리스크.</td></tr>
+        <tr><td><strong>질염 완화·예방</strong></td><td>치료(treatment)</td><td><span class="tag tag-red" style="margin:0;">최고</span></td><td>사실상 의약품 영역. 기기로는 거의 불가 → <strong>드롭 또는 별도 의약품 트랙 검토.</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 6. 국내 트레이드오프 -->
+  <section class="slide" style="background:var(--paper-warm);">
+    <span class="slide-num">06</span>
+    <div class="kicker">국내에서 이미 드러난 딜레마</div>
+    <h2>효능을 택하면 성분을 잃고,<br>성분을 택하면 효능을 잃는다</h2>
+    <div class="grid-2" style="gap:28px; align-items:stretch;">
+      <div class="card">
+        <span class="tag tag-ink">2등급 의료기기 · 질세정기</span>
+        <ul class="clean" style="margin-top:8px;">
+          <li><span class="chk">✓</span> 질내 삽입 표현 가능</li>
+          <li><span class="chk">✓</span> 질염·냄새 등 <strong>효능 소구 일부 가능</strong></li>
+          <li><span class="crs">✕</span> <strong>락토바실러스 발효물 함유 불가</strong></li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag tag-ink">3등급 의료기기 · 개인용 윤활제</span>
+        <ul class="clean" style="margin-top:8px;">
+          <li><span class="chk">✓</span> 질내 삽입 표현 가능</li>
+          <li><span class="chk">✓</span> <strong>락토바실러스 발효물 함유 가능</strong></li>
+          <li><span class="crs">✕</span> 질염·냄새 등 <strong>효능 소구 불가</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="conflict" style="margin-top:28px;">
+      <p><strong style="color:var(--ink);">결정의 핵심:</strong> 우리 제품 정체성(락토바실러스 발효물)을 지키려면 3등급(윤활제) 경로가 사실상 강제된다. 세 컨설팅사 모두 <span class="highlight">국내는 윤활제로 등록하는 것이 허가·효능 측면에서 유리</span>하다고 권고한다. 효능은 "윤활·보습에서 파생되는 2차 효과"로 암시하는 방식이 현실적 해법.</p>
+    </div>
+  </section>
+
+  <!-- 7. 경쟁사 선례 -->
+  <section class="slide">
+    <span class="slide-num">07</span>
+    <div class="kicker">경쟁사는 이 문제를 어떻게 풀었는가</div>
+    <h2>미국은 "윤활제", 유럽은 "효능" — 시장이 갈린다</h2>
+    <table>
+      <thead>
+        <tr><th style="width:20%;">제품</th><th style="width:40%;">미국 FDA</th><th style="width:40%;">유럽 CE</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Canesbalance</strong><br><span style="font-size:12.5px;">Bayer</span></td><td><span class="crs">✕</span> 없음</td><td><span class="chk">✓</span> BV(질증) 치료, pH 정상화, 냄새·분비물 완화, 유익균 회복</td></tr>
+        <tr><td><strong>RepHresh</strong><br><span style="font-size:12.5px;">Church &amp; Dwight</span></td><td><span class="chk">✓</span> 개인용 윤활제. pH 제품이지만 <strong>'Personal Lubricant'로 진입</strong></td><td><span class="crs">✕</span> 없음</td></tr>
+        <tr><td><strong>Replens</strong></td><td><span class="chk">✓</span> 개인용 질 윤활제. 보습·건조 완화</td><td><span class="crs">✕</span> 없음</td></tr>
+        <tr><td><strong>PalomaCare</strong><br><span style="font-size:12.5px;">Procare Health</span></td><td><span class="crs">✕</span> 없음</td><td><span class="chk">✓</span> 점막 보습·재생, 질 환경 개선, 비특이성 질염 완화 보조</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2" style="margin-top:24px; gap:24px;">
+      <div class="conflict" style="border-left-color:var(--accent);"><p><strong style="color:var(--ink);">패턴 1.</strong> 미국 등록 제품은 효능 성분을 가졌어도 <span class="highlight">클레임은 "윤활제"로 낮춰 진입</span>했다.</p></div>
+      <div class="conflict" style="border-left-color:var(--accent);"><p><strong style="color:var(--ink);">패턴 2.</strong> 강한 효능(질염·pH·재생)은 <span class="highlight">유럽 CE에서만</span> 주장 가능했다.</p></div>
+    </div>
+    <p class="footnote">4종 모두 국내(MFDS) 허가 사례는 없음 → 식약처 분류 사전상담이 선결 과제.</p>
+  </section>
+
+  <!-- 8. 국가별 비교 -->
+  <section class="slide" style="background:var(--paper-warm);">
+    <span class="slide-num">08</span>
+    <div class="kicker">어디서, 어떤 등급으로, 얼마나 걸리는가</div>
+    <h2>주요국 인허가 한눈에 보기</h2>
+    <table>
+      <thead>
+        <tr><th style="width:14%;">국가/기관</th><th style="width:30%;">분류 (윤활/보습 기준)</th><th style="width:30%;">효능 클레임 여지</th><th style="width:14%;">소요기간</th><th style="width:12%;">임상</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>한국 MFDS</strong></td><td>개인용 윤활제 3등급 (권장)</td><td>윤활·보습 중심, 질염 표현 제거</td><td>약 4개월~</td><td>동등성 입증 가능</td></tr>
+        <tr><td><strong>미국 FDA</strong></td><td>윤활제 Class II (510k) / 세정 Class I</td><td>물리적 보습·윤활. 화학작용 주장 시 drug 위험</td><td>약 6~9개월</td><td>동등성(510k)</td></tr>
+        <tr><td><strong>유럽 CE</strong></td><td>윤활/보습 Rule 21, Class IIb</td><td><strong>가장 관대</strong> — 문헌 기반 효능 클레임 가능</td><td>약 18개월</td><td>임상평가 필수</td></tr>
+        <tr><td><strong>대만 TFDA</strong></td><td>의료기기 등급 분류 후 등록</td><td>보습·환경개선·냄새 검토 가능, 질염 제한</td><td>약 12~18개월</td><td>기능성 시 요구</td></tr>
+        <tr><td><strong>동남아</strong><br><span style="font-size:12px;">베트남·태국 등</span></td><td>현지 License Holder 지정</td><td>보습·환경개선 가능, 치료성 제한</td><td>약 6~12개월</td><td>한국 기반 스킵 가능</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">기간은 컨설팅사별 추정이며 클레임 수준·인증기관 적체에 따라 변동. 미국 FDA는 한국 허가 없이도 독립 진행 가능(씨앤에스).</p>
+  </section>
+
+  <!-- 9. 용어 해설 1 -->
+  <section class="slide">
+    <span class="slide-num">09</span>
+    <div class="kicker">보고서를 읽기 위한 용어 — ① 등급 체계</div>
+    <h2>Class I / IIb, Rule 21이 대체 무슨 뜻인가</h2>
+    <div class="grid-2" style="gap:22px;">
+      <div class="term">
+        <div class="name">의료기기 "등급(Class)"</div>
+        <div class="sub">위험도에 따른 분류</div>
+        <p>몸에 미치는 위험이 클수록 높은 등급. 등급이 높을수록 요구 서류·심사·임상이 늘어난다. 나라마다 숫자 체계가 다르다는 점이 혼란의 원인.</p>
+      </div>
+      <div class="term">
+        <div class="name">미국 Class I / II / III</div>
+        <div class="sub">FDA 기준</div>
+        <p><strong>Class I</strong>: 저위험, 서류 거의 불필요(세정기 등). <strong>Class II</strong>: 중위험, <strong>510(k)</strong> 필요(윤활제가 여기). <strong>Class III</strong>: 고위험, 가장 까다로움.</p>
+      </div>
+      <div class="term">
+        <div class="name">유럽 Class I / IIa / IIb / III</div>
+        <div class="sub">CE MDR 기준</div>
+        <p>유럽은 4단계. 우리 제품(질내 삽입 윤활·보습)은 보통 <strong>IIb</strong>로 분류된다. IIb부터는 인증기관(NB) 심사가 필요해 시간이 더 걸린다.</p>
+      </div>
+      <div class="term">
+        <div class="name">"Rule 21"</div>
+        <div class="sub">유럽 MDR의 분류 규칙</div>
+        <p>유럽 MDR에는 제품을 어느 등급에 넣을지 정하는 22개 규칙이 있다. <strong>Rule 21</strong>은 "체내에 들어가 흡수·분산되는 물질형 제품"에 대한 규칙으로, 적용되면 보통 <strong>Class IIb</strong>가 된다. 즉 우리 제품 유형이 유럽에서 어디로 떨어지는지를 정하는 조항.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 용어 해설 2 -->
+  <section class="slide" style="background:var(--paper-warm);">
+    <span class="slide-num">10</span>
+    <div class="kicker">보고서를 읽기 위한 용어 — ② 경로와 인증</div>
+    <h2>510(k), 동등성, MDSAP, 제조의뢰자</h2>
+    <div class="grid-3" style="gap:20px;">
+      <div class="term">
+        <div class="name">510(k)</div>
+        <div class="sub">미국 FDA 허가 경로</div>
+        <p>"이미 허가된 기존 제품과 본질적으로 동등하다"고 입증해 허가받는 경로. 신규 임상 없이 진행 가능한 경우가 많아 <strong>빠르고 저렴</strong>하다.</p>
+      </div>
+      <div class="term">
+        <div class="name">동등성 입증<br>(Substantial Equivalence)</div>
+        <div class="sub">임상을 줄이는 핵심 열쇠</div>
+        <p>이미 시장에 나온 유사 제품 및 그 임상 논문을 근거로 "우리도 같다"고 보이는 방식. 직접 임상을 안 하고 허가받는 경로의 토대.</p>
+      </div>
+      <div class="term">
+        <div class="name">CE MDR</div>
+        <div class="sub">유럽 의료기기 규정</div>
+        <p>유럽 의료기기 인증 제도. 효능 클레임에 상대적으로 관대하지만, <strong>임상평가(CER)</strong>가 필수이고 시간이 오래 걸린다(약 18개월).</p>
+      </div>
+      <div class="term">
+        <div class="name">MDSAP</div>
+        <div class="sub">5개국 통합 품질심사</div>
+        <p>미국·일본·캐나다·호주·브라질이 인정하는 단일 품질시스템 심사. 보유 시 <strong>FDA 현장심사가 사실상 면제</strong>되고 다국가 진출이 효율적.</p>
+      </div>
+      <div class="term">
+        <div class="name">ISO 13485</div>
+        <div class="sub">의료기기 품질경영 인증</div>
+        <p>의료기기 제조·관리 품질 표준. 신청 주체에 따라 보유가 필요할 수 있다.</p>
+      </div>
+      <div class="term">
+        <div class="name">제조의뢰자 vs 제조자</div>
+        <div class="sub">허가 명의 구조</div>
+        <p><strong>제조의뢰자</strong>(허가권 보유, 시설 불필요)로 진행하면 유연하나, <strong>제조자가 허가를 취소할 수 있는 리스크</strong>(디오 사례)가 있다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. 컨설팅사 권고 비교 -->
+  <section class="slide">
+    <span class="slide-num">11</span>
+    <div class="kicker">세 자문사의 권고가 갈리는 지점</div>
+    <h2>같은 목표, 다른 길 — 무엇을 믿을 것인가</h2>
+    <table>
+      <thead>
+        <tr><th style="width:16%;"></th><th>Cisema</th><th>씨앤에스</th><th>메디가이드</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>커버 지역</strong></td><td>중화권·동남아 강점<br>(미·유럽 미진행)</td><td>한국·미국·유럽 직접</td><td>의료기기+의약품 통합 커버</td></tr>
+        <tr><td><strong>어디부터?</strong></td><td><strong>한국 먼저</strong> (관문·레퍼런스)</td><td>한국·미국 <strong>동시</strong> 권장</td><td><strong>유럽 먼저</strong> (TD 표준화)</td></tr>
+        <tr><td><strong>임상 관점</strong></td><td>논의 중</td><td>신규 목적 추가 시 <strong>임상 필요(~2억, 40명)</strong></td><td>대부분 <strong>임상 불필요</strong>, 동등성으로 진행</td></tr>
+        <tr><td><strong>등급 전략</strong></td><td>의료기기 한정 안 함</td><td>보습+pH+냄새로 3국 동시 진입</td><td><strong>낮은 등급 빠른 등록 → 점진 상향</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="conflict" style="margin-top:26px;">
+      <p><strong style="color:var(--ink);">주목할 충돌:</strong> "임상이 필요한가"에 대해 씨앤에스(필요·2억)와 메디가이드(불필요·동등성)의 견해가 정면으로 갈린다. <span class="highlight">이 차이는 우리가 어느 수준의 효능을 주장하려는지에 달려 있다</span> — 윤활·보습이면 동등성으로 충분, 질염·pH 효능이면 임상 가능성이 커진다.</p>
+    </div>
+  </section>
+
+  <!-- 12. 미해결 쟁점 -->
+  <section class="slide" style="background:var(--paper-warm);">
+    <span class="slide-num">12</span>
+    <div class="kicker">아직 답하지 못한 질문들</div>
+    <h2>의사결정 전에 반드시 확정할 쟁점</h2>
+    <div class="grid-2" style="gap:24px;">
+      <div class="card flat" style="border-left:4px solid var(--red);">
+        <h3>① 락토바실러스 발효물의 "역할"</h3>
+        <p>제품 안에서 보조 성분인가, 아니면 pH·균을 바꾸는 활성 성분인가? 이 답이 의료기기/의약품 분기를 결정한다. <strong>모든 전략의 출발점.</strong></p>
+      </div>
+      <div class="card flat" style="border-left:4px solid var(--amber);">
+        <h3>② 신규 원료 등록 리스크</h3>
+        <p>락토바실러스 발효물이 약전 미등재 신규 원료일 경우, FDA·CE·MFDS 모두 임상 요구 또는 고등급 분류 가능. <strong>원료 스크리닝 자문 필요.</strong></p>
+      </div>
+      <div class="card flat" style="border-left:4px solid var(--amber);">
+        <h3>③ 인허가 단계 vs 마케팅 단계 임상</h3>
+        <p>효능 임상을 허가 취득용으로 할지, 허가는 따로 받고 마케팅 실증용으로 별도 진행할지 미정. <strong>비용·일정에 직결.</strong></p>
+      </div>
+      <div class="card flat" style="border-left:4px solid var(--accent);">
+        <h3>④ 허가 명의 구조</h3>
+        <p>제조자 명의 vs 제조의뢰자 명의. 한 번 정하면 전 국가가 동일해야 하고, 법적 책임·허가권 취소 리스크와 직결. <strong>법리 검토 필요.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. 의사결정 기준 -->
+  <section class="slide">
+    <span class="slide-num">13</span>
+    <div class="kicker">경영진이 적용할 판단의 축</div>
+    <h2>네 가지 의사결정 기준</h2>
+    <div class="crit">
+      <div class="no">01</div>
+      <div class="txt"><h3>효능 야망 vs 속도·비용</h3><p>"윤활·보습"으로 보수적으로 가면 빠르고 저렴하지만 클레임이 약하다. "pH·질염"까지 욕심내면 강력하지만 임상·비용·기간이 급증하고 의약품 재분류 위험을 진다. <strong>어디까지 주장할 것인가</strong>가 가장 먼저 정해져야 할 사업적 판단.</p></div>
+    </div>
+    <div class="crit">
+      <div class="no">02</div>
+      <div class="txt"><h3>시장 우선순위</h3><p>강한 효능을 원하면 유럽(CE)이 유리하고, 빠른 진입을 원하면 미국(510k)·한국이 유리하다. <strong>어느 시장을 먼저, 무엇을 위해</strong> 여느냐에 따라 진입 순서가 달라진다.</p></div>
+    </div>
+    <div class="crit">
+      <div class="no">03</div>
+      <div class="txt"><h3>제품 정체성 보존의 우선도</h3><p>락토바실러스 발효물 함유가 절대 조건이라면 국내 윤활제(3등급) 경로가 사실상 강제된다. <strong>성분과 효능 중 무엇을 양보할 수 없는가.</strong></p></div>
+    </div>
+    <div class="crit">
+      <div class="no">04</div>
+      <div class="txt"><h3>리스크 감수 수준</h3><p>"낮은 등급 빠른 등록 후 점진 상향"(메디가이드)은 시장 진입이 빠르나 추후 재등록 부담이 있고, "처음부터 높은 등급 정공법"은 느리지만 안정적이다. <strong>속도와 안정성 중 무엇을 택할 것인가.</strong></p></div>
+    </div>
+  </section>
+
+  <!-- 14. 다음 단계 -->
+  <section class="slide cover">
+    <span class="slide-num" style="color:rgba(244,241,234,0.5);">14</span>
+    <div class="inner">
+      <div class="kicker" style="color:var(--gold);">권고 — 의사결정을 위한 선결 과제</div>
+      <h2 style="color:#fff;">결정에 앞서, 이 순서로 확정하자</h2>
+      <div class="grid-2" style="gap:28px; margin-top:8px;">
+        <div>
+          <ul class="clean">
+            <li style="color:rgba(244,241,234,0.9);"><strong style="color:#fff;">1. 효능 목표선 합의</strong><br>"보습까지" / "환경개선까지" / "질염까지" 중 경영진이 목표 클레임을 먼저 결정</li>
+            <li style="color:rgba(244,241,234,0.9);"><strong style="color:#fff;">2. 락토바실러스 역할 규명</strong><br>R&D와 함께 작용 기전을 물리적으로 설명 가능한지 검토</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="clean">
+            <li style="color:rgba(244,241,234,0.9);"><strong style="color:#fff;">3. 식약처 분류 사전상담</strong><br>국내 선례가 없으므로 품목·등급·표방범위를 가장 먼저 확정</li>
+            <li style="color:rgba(244,241,234,0.9);"><strong style="color:#fff;">4. 명의 구조 법리 검토 + 견적 확정</strong><br>국가별 정식 견적·일정 확보 후 자문사 선정</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:40px; color:rgba(244,241,234,0.82);">핵심 메시지: <span style="color:var(--gold);">이 프로젝트의 모든 갈림길은 "우리가 어디까지 주장할 것인가"라는 단 하나의 사업적 결정으로 수렴한다.</span> 그 답이 정해지면 국가·등급·임상·비용은 따라온다.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
