@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GLP-1 천연 다이어트 라인업 기획안 v2</title>
+<style>
+:root{
+  --bg:#07090F;--bg2:#0F1420;--card:#1C2540;--card2:#141929;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,0.12);--gold-border:rgba(201,168,76,0.3);
+  --teal:#2DD4BF;--teal-dim:rgba(45,212,191,0.1);
+  --green:#4ADE80;--green-dim:rgba(74,222,128,0.1);
+  --amber:#FCD34D;--amber-dim:rgba(252,211,77,0.1);
+  --coral:#F4A261;--coral-dim:rgba(244,162,97,0.1);
+  --purple:#A78BFA;--purple-dim:rgba(167,139,250,0.1);
+  --blue:#60A5FA;--blue-dim:rgba(96,165,250,0.1);
+  --text:#EDE8DC;--text2:#9AA5BE;--text3:#5A6480;
+  --border:rgba(255,255,255,0.07);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:14px;line-height:1.7;}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(7,9,15,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:0;overflow-x:auto;}
+nav a{padding:14px 16px;color:var(--text2);text-decoration:none;font-size:12px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+nav a:hover{color:var(--gold);}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+.page{max-width:1000px;margin:0 auto;padding:48px 24px 80px;}
+.section{margin-bottom:72px;}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.sec-title{font-size:26px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.sec-sub{font-size:14px;color:var(--text2);margin-bottom:32px;}
+
+.stage-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;}
+.stage-head{padding:20px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stage-badge{font-size:10px;font-weight:700;letter-spacing:0.1em;padding:4px 12px;border-radius:20px;}
+.sb-gray{background:rgba(148,163,184,0.15);color:#94A3B8;border:1px solid rgba(148,163,184,0.25);}
+.sb-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(74,222,128,0.25);}
+.sb-teal{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(45,212,191,0.25);}
+.sb-amber{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(252,211,77,0.25);}
+.sb-blue{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(96,165,250,0.25);}
+.stage-name{font-size:17px;font-weight:700;color:var(--text);}
+.stage-form{font-size:12px;color:var(--text2);background:rgba(255,255,255,0.05);padding:3px 10px;border-radius:20px;margin-left:auto;}
+.stage-body{padding:20px 24px;}
+
+.consumer-line{border-left:3px solid var(--gold);padding:10px 16px;margin-bottom:18px;background:var(--gold-dim);border-radius:0 8px 8px 0;}
+.cl-label{font-size:10px;color:var(--gold);font-weight:600;letter-spacing:0.08em;margin-bottom:4px;}
+.cl-text{font-size:15px;font-weight:700;color:var(--text);}
+
+.func-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.func-pill{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;}
+.fp-core{background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-border);}
+.fp-add{background:rgba(255,255,255,0.05);color:var(--text2);border:1px solid var(--border);}
+.fp-boost{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(45,212,191,0.2);}
+
+/* INGREDIENT TABLE — 5 columns */
+.ing-table{width:100%;border-collapse:collapse;}
+.ing-table th{padding:8px 10px;text-align:left;font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.06em;border-bottom:1px solid var(--border);background:var(--card2);}
+.ing-table td{padding:10px 10px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;}
+.ing-table tr:last-child td{border-bottom:none;}
+.ing-table tr:hover td{background:rgba(255,255,255,0.02);}
+.col-role{width:68px;}
+.col-ing{width:148px;}
+.col-func{width:110px;}
+.col-sogu{} 
+.col-cite{width:200px;}
+
+.role-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;}
+.rb-main{background:rgba(201,168,76,0.2);color:var(--gold);border:1px solid var(--gold-border);}
+.rb-fix{background:rgba(167,139,250,0.15);color:var(--purple);border:1px solid rgba(167,139,250,0.3);}
+.rb-sub{background:rgba(255,255,255,0.06);color:var(--text2);border:1px solid var(--border);}
+.rb-aux{background:transparent;color:var(--text3);border:1px solid rgba(255,255,255,0.05);}
+.rb-gfood{background:rgba(74,222,128,0.12);color:var(--green);border:1px solid rgba(74,222,128,0.25);}
+
+.ing-name{font-weight:600;color:var(--text);margin-bottom:2px;}
+.ing-detail{font-size:11px;color:var(--text3);}
+.func-tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:500;background:rgba(255,255,255,0.05);color:var(--text2);border:1px solid var(--border);}
+.ing-func{color:var(--text2);line-height:1.55;font-size:12px;}
+.cite{font-size:10px;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(45,212,191,0.2);padding:1px 7px;border-radius:10px;display:inline-block;margin-top:3px;line-height:1.5;}
+.cite-warn{font-size:10px;color:var(--coral);background:var(--coral-dim);border:1px solid rgba(244,162,97,0.25);padding:1px 7px;border-radius:10px;display:inline-block;margin-top:3px;line-height:1.5;}
+
+.dual-label{padding:8px 14px;font-size:11px;font-weight:600;letter-spacing:0.06em;display:flex;align-items:center;gap:6px;}
+.dl-liquid{color:var(--teal);background:rgba(45,212,191,0.06);border-top:1px solid var(--border);}
+.dl-tablet{color:var(--amber);background:rgba(252,211,77,0.06);border-top:1px solid var(--border);}
+.dl-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.dd-teal{background:var(--teal);}
+.dd-amber{background:var(--amber);}
+
+/* AB TABS */
+.tab-wrap{margin-bottom:20px;}
+.tab-btns{display:flex;gap:6px;margin-bottom:0;padding:10px 10px 0;background:var(--card2);border-radius:10px 10px 0 0;border:1px solid var(--border);border-bottom:none;}
+.tab-btn{padding:9px 22px;font-size:13px;font-weight:600;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px 8px 0 0;cursor:pointer;transition:all .2s;margin-bottom:-1px;}
+.tab-btn:hover{color:var(--text2);background:rgba(255,255,255,0.08);}
+.tab-btn.on{color:var(--amber);background:rgba(252,211,77,0.15);border-color:rgba(252,211,77,0.4);border-bottom-color:var(--card);}
+.tab-btn.on-b{color:var(--blue);background:rgba(96,165,250,0.15);border-color:rgba(96,165,250,0.4);border-bottom-color:var(--card);}
+.tab-pane{display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:4px 0;}
+.tab-pane.show{display:block;}
+
+.plan-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;margin-bottom:12px;}
+.pb-a{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(252,211,77,0.25);}
+.pb-b{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(96,165,250,0.25);}
+
+.note-box{border-radius:12px;padding:14px 18px;margin-top:16px;display:flex;gap:12px;}
+.nb-teal{background:rgba(45,212,191,0.06);border:1px solid rgba(45,212,191,0.2);}
+.nb-amber{background:rgba(244,162,97,0.06);border:1px solid rgba(244,162,97,0.2);}
+.nb-blue{background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.2);}
+.nb-icon{font-size:16px;flex-shrink:0;margin-top:2px;}
+.nb-text{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* OVERVIEW TABLE */
+.overview-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;}
+.overview-table th{padding:10px 14px;font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.06em;border-bottom:1px solid var(--border);background:var(--card2);text-align:left;}
+.overview-table td{padding:12px 14px;font-size:13px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);}
+.overview-table tr:last-child td{border-bottom:none;}
+
+/* DIFF TABLE */
+.diff-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;}
+.diff-table th{padding:9px 14px;font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.06em;border-bottom:1px solid var(--border);background:var(--card2);text-align:left;}
+.diff-table td{padding:11px 14px;font-size:13px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);line-height:1.55;}
+.diff-table tr:last-child td{border-bottom:none;}
+.diff-table .dcol-stage{font-weight:700;color:var(--text);white-space:nowrap;width:70px;}
+.diff-table .dcol-before{width:220px;}
+.diff-table .dcol-after{width:220px;}
+.diff-before{color:#F87171;}
+.diff-after{color:#4ADE80;}
+.diff-reason{color:var(--text2);}
+.strike{text-decoration:line-through;opacity:0.5;}
+
+@media(max-width:640px){
+  nav a{padding:12px 9px;font-size:11px;}
+  .col-cite{display:none;}
+  .col-func{display:none;}
+  .stage-form{display:none;}
+  .page{padding:20px 12px 60px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#overview" class="active">개요</a>
+  <a href="#booster">부스터</a>
+  <a href="#step1">1단계</a>
+  <a href="#step2">2단계</a>
+  <a href="#step3">3단계</a>
+  <a href="#diff">변경 비교</a>
+</nav>
+
+<div class="page">
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+  <div class="sec-label">Product Lineup</div>
+  <div class="sec-title">GLP-1 천연 다이어트 라인업</div>
+  <div class="sec-sub">GLP-1 기전을 연구한 박사와 공동 개발 · 단계별 기능 확장 구조 · 일반식품 (3단계 B안만 건강기능식품)</div>
+
+  <table class="overview-table">
+    <thead>
+      <tr><th>단계</th><th>제형</th><th>핵심 기능</th><th>소비자 후크</th><th>GLP-1 기전</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;">부스터</td>
+        <td>필름형</td>
+        <td>즉각 식욕 억제 + 식후 혈당 억제</td>
+        <td>"먹기 전 딱 1장, 뇌에 배부름 신호를 먼저 보냅니다"</td>
+        <td style="color:#94A3B8;">없음 (TAS2R 경로)</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green);">1단계</td>
+        <td>정제형</td>
+        <td>GLP-1 분비 촉진 (50%)</td>
+        <td>"먹고 싶은 마음이 줄어서 살 빠진다"</td>
+        <td style="color:var(--green);">✓ 기초</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--teal);">2단계</td>
+        <td>액상형</td>
+        <td>GLP-1 (100%) + 혈당 관리 + 지방 합성 억제</td>
+        <td>"먹어도 덜 쌓여서 살 빠진다"</td>
+        <td style="color:var(--teal);">✓✓ 강화</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--amber);">3단계</td>
+        <td>액상+캡슐 (A/B안)</td>
+        <td>2단계 전체 + 내장지방 분해 + 장 건강·배변 + 근손실 억제</td>
+        <td>"쌓인 내장지방까지 타겟, 몸 전체가 바뀐다"</td>
+        <td style="color:var(--amber);">✓✓✓ 즉효+지속</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box nb-teal" style="margin-top:16px;">
+    <div class="nb-icon">⚡</div>
+    <div class="nb-text"><strong style="color:var(--teal);">부스터 동시 복용 권장 소구</strong> — 부스터(쓴맛 TAS2R 경로)와 1~3단계(GLP-1 분비 경로)는 서로 다른 기전으로 작동해 식욕 억제 효과가 상호 보완됩니다. "식사 직전 부스터 + 매일 단계별 제품"의 이중 루틴으로 소구합니다.</div>
+  </div>
+</section>
+
+<!-- BOOSTER -->
+<section class="section" id="booster">
+  <div class="sec-label">Booster</div>
+  <div class="sec-title">부스터 — 즉각 식욕 차단</div>
+  <div class="sec-sub">필름형 · 식사 직전 1매 · GLP-1 기전 없음 · 일반식품</div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-badge sb-gray">BOOSTER</span>
+      <span class="stage-name">쓴맛 TAS2R 즉각 식욕 차단</span>
+      <span class="stage-form">필름형 · 식사 직전</span>
+    </div>
+    <div class="stage-body">
+      <div class="consumer-line">
+        <div class="cl-label">광고 후크</div>
+        <div class="cl-text">"먹기 전 딱 1장. 쓴 맛이 나는 순간, 뇌가 배부름 신호를 먼저 보냅니다."</div>
+      </div>
+      <div class="func-row">
+        <span class="func-pill fp-core">⭐ 즉각 식욕 억제</span>
+        <span class="func-pill fp-add">식후 혈당 억제</span>
+      </div>
+      <table class="ing-table">
+        <thead>
+          <tr>
+            <th class="col-role">역할</th>
+            <th class="col-ing">원료</th>
+            <th class="col-func">기능</th>
+            <th class="col-sogu">기전 및 소구점</th>
+            <th class="col-cite">근거 논문</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="role-badge rb-main">메인</span></td>
+            <td><div class="ing-name">베르베린</div><div class="ing-detail">매자나무 추출 알칼로이드</div></td>
+            <td><span class="func-tag">식욕 억제</span></td>
+            <td><div class="ing-func">소장 TAS2R 쓴맛 수용체 직접 자극 → L세포 GLP-1 분비 유도 → 즉각 포만감·식욕 억제. AMPK 활성화로 당·지질 대사 보조. 소량(50~100mg)으로 필름 탑재 가능</div></td>
+            <td><span class="cite">Tong A et al., Theranostics 2025 — TAS2R 활성화·GLP-1 분비 기전</span><br><span class="cite">TAS2R1/TAS2R138 자극·GLP-1 분비 (ResearchGate 2022)</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브</span></td>
+            <td><div class="ing-name">여주 추출물</div><div class="ing-detail">Momordica charantia</div></td>
+            <td><span class="func-tag">혈당 억제</span></td>
+            <td><div class="ing-func">TAS2R 쓴맛 시너지로 포만 신호 강화. 인슐린 유사 성분으로 식후 혈당 스파이크 억제. 필름 쓴맛 체감을 "작동하는 신호"로 연결하는 스토리 원료</div></td>
+            <td><span class="cite">Tong A et al., Theranostics 2025 — 쓴맛 성분·TAS2R·GLP-1 경로</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 1 -->
+<section class="section" id="step1">
+  <div class="sec-label">Step 1</div>
+  <div class="sec-title">1단계 — GLP-1 분비 입문</div>
+  <div class="sec-sub">정제형 · 매일 · Rg3 1.2mg / 루틴 0.66mg (최대함량 50%) · 일반식품</div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-badge sb-green">STEP 1</span>
+      <span class="stage-name">GLP-1 분비 시작 — 입문 설계</span>
+      <span class="stage-form">정제형 · 매일</span>
+    </div>
+    <div class="stage-body">
+      <div class="consumer-line">
+        <div class="cl-label">광고 후크</div>
+        <div class="cl-text">"먹고 싶은 마음이 줄어서 살이 빠집니다. 위고비가 주사로 올리는 그 호르몬, 천연 성분이 자연스럽게 도와줍니다."</div>
+      </div>
+      <div class="func-row">
+        <span class="func-pill fp-core">⭐ GLP-1 분비 촉진</span>
+        <span class="func-pill fp-add">혈당 조절 보조</span>
+        <span class="func-pill fp-add">포만감·식욕 억제</span>
+      </div>
+      <table class="ing-table">
+        <thead>
+          <tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="role-badge rb-main">메인 ①</span></td>
+            <td><div class="ing-name">홍삼 Rg3 추출물</div><div class="ing-detail">Rg3 1.2mg (50%)</div></td>
+            <td><span class="func-tag">GLP-1 분비</span></td>
+            <td><div class="ing-func">진세노사이드 Rg3 → 소장 L세포 GLP-1 분비 촉진 → 식욕 억제·포만감·혈당 조절. 식약처 홍삼 혈당 조절 기능성 인정</div></td>
+            <td><span class="cite">Ko et al., KoreaSciense — Rg3 L세포 GLP-1 분비</span><br><span class="cite">KGC인삼공사 임상 (2024) — 식약처 혈당 조절 기능성 인정</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-main">메인 ②</span></td>
+            <td><div class="ing-name">타르타리 메밀 루틴</div><div class="ing-detail">루틴 0.66mg (50%)</div></td>
+            <td><span class="func-tag">GLP-1 보조</span></td>
+            <td><div class="ing-func">루틴 → L세포 GLP-1 분비 보조 + 혈당·HbA1c 개선. 모세혈관 강화로 첫날 부기 감소 체감 유도</div></td>
+            <td><span class="cite">Shen et al., J Funct Foods 2021 — 루틴 GLP-1 분비·혈당 개선</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-fix">박사 시너지</span></td>
+            <td><div class="ing-name">인동 (Lonicera japonica)</div><div class="ing-detail">박사 추천 시너지</div></td>
+            <td><span class="func-tag">GLP-1 시너지</span></td>
+            <td><div class="ing-func">인동 폴리페놀 → 장내 미생물 개선 → SCFA 증가 → L세포 자극. 인동+지황 복합 GLP-1·PYY 분비·포만감 증가 확인</div></td>
+            <td><span class="cite">Lee et al., PMC4812314 — 인동·지황 복합 GLP-1·PYY 분비 (db/db 마우스)</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-fix">박사 시너지</span></td>
+            <td><div class="ing-name">지황 (Rehmannia glutinosa)</div><div class="ing-detail">박사 추천 시너지</div></td>
+            <td><span class="func-tag">GLP-1R 활성화</span></td>
+            <td><div class="ing-func">카탈폴 → GLP-1R 신호(PKA/CREB) 활성화 + DPP-4 억제 → GLP-1 분비 촉진·분해 감소. 당뇨 모델 인슐린 유전자 발현 촉진</div></td>
+            <td><span class="cite">CIMB 2025 — 발효 지황 카탈폴 GLP-1R 신호 활성화</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-fix">박사 시너지</span></td>
+            <td><div class="ing-name">귤피 (Citrus peel)</div><div class="ing-detail">박사 추천 시너지</div></td>
+            <td><span class="func-tag">지방 합성 억제</span></td>
+            <td><div class="ing-func">헤스페리딘·나린게닌 → PPARγ 억제 → 지방 합성 차단 + 혈당 조절 + CCK·그렐린 조절 → 포만 호르몬 보조</div></td>
+            <td><span class="cite">Drug Des Devel Ther 2019 — 헤스페리딘 PPARγ·지방 합성 억제</span><br><span class="cite">Nutrients 2025 — 나린게닌 복부지방 감소·포만 호르몬</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ①</span></td>
+            <td><div class="ing-name">치커리 추출물</div><div class="ing-detail">이눌린 계열</div></td>
+            <td><span class="func-tag">장내 GLP-1 보조</span></td>
+            <td><div class="ing-func">이눌린 발효 → SCFA 생성 → L세포 추가 자극 → GLP-1 분비 보조. 정제 부형제 역할 겸용</div></td>
+            <td><span class="cite">Brighenti et al. — 이눌린·SCFA·GLP-1 경로</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ②</span></td>
+            <td><div class="ing-name">알긴산나트륨</div><div class="ing-detail">해조류 수용성 식이섬유</div></td>
+            <td><span class="func-tag">포만감·혈당 완화</span></td>
+            <td><div class="ing-func">위 내 겔 형성 → 물리적 포만감 + 당·지방 흡수 속도 완화 → 식후 혈당 스파이크 억제</div></td>
+            <td><span class="cite">Paxman et al., Appetite 2008 — 알긴산 겔 형성·포만감·혈당</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-aux">부원료</span></td>
+            <td><div class="ing-name">비타민 B1·B6·B12</div><div class="ing-detail"></div></td>
+            <td><span class="func-tag">에너지 대사</span></td>
+            <td><div class="ing-func">탄수화물·단백질·지방 에너지 대사 효율화. 소비자 인지도 높아 스펙 완성도 강화</div></td>
+            <td><span class="cite">식약처 고시 기능성 원료</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="section" id="step2">
+  <div class="sec-label">Step 2</div>
+  <div class="sec-title">2단계 — GLP-1 + 대사 관리</div>
+  <div class="sec-sub">액상형 · 매일 1포 · Rg3 2.4mg / 루틴 1.31mg (100%) · 인동·지황·귤피 각 2.5g · 일반식품</div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-badge sb-teal">STEP 2</span>
+      <span class="stage-name">GLP-1 핵심 함량 + 혈당·지방 대사 관리</span>
+      <span class="stage-form">액상형 · 매일 1포</span>
+    </div>
+    <div class="stage-body">
+      <div class="consumer-line">
+        <div class="cl-label">광고 후크</div>
+        <div class="cl-text">"같은 원료도 얼마나 담겼냐가 다릅니다. 이제 핵심 함량, 먹어도 덜 쌓입니다."</div>
+      </div>
+      <div class="func-row">
+        <span class="func-pill fp-core">⭐ GLP-1 분비 (핵심 함량)</span>
+        <span class="func-pill fp-boost">식후 혈당 관리</span>
+        <span class="func-pill fp-boost">지방 합성 억제</span>
+        <span class="func-pill fp-add">포만감·식욕 억제</span>
+      </div>
+      <table class="ing-table">
+        <thead>
+          <tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="role-badge rb-main">메인 ①</span></td>
+            <td><div class="ing-name">홍삼 Rg3 고농축</div><div class="ing-detail">Rg3 2.4mg (100%)</div></td>
+            <td><span class="func-tag">GLP-1 분비</span></td>
+            <td><div class="ing-func">1단계 대비 Rg3 2배. GLP-1 분비 핵심 함량 도달. 액상 흡수로 정제 대비 작용 속도 빠름</div></td>
+            <td><span class="cite">KGC인삼공사 임상 (2024)</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-main">메인 ②</span></td>
+            <td><div class="ing-name">타르타리 메밀 루틴</div><div class="ing-detail">루틴 1.31mg (100%)</div></td>
+            <td><span class="func-tag">GLP-1 시너지</span></td>
+            <td><div class="ing-func">GLP-1 분비 시너지 + 혈관·모세혈관 강화 + 항산화. 핵심 함량 100% 달성</div></td>
+            <td><span class="cite">Shen et al., J Funct Foods 2021</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-fix">박사 시너지</span></td>
+            <td><div class="ing-name">인동·지황·귤피</div><div class="ing-detail">각 2.5g</div></td>
+            <td><span class="func-tag">복합 시너지</span></td>
+            <td><div class="ing-func">1단계 대비 함량 증가(각 2.5g). GLP-1 분비 보조·DPP-4 억제(지황)·지방 합성 억제(귤피) 시너지. 액상 흡수로 작용 속도 향상</div></td>
+            <td><span class="cite">PMC4812314; CIMB 2025; Drug Des Devel Ther 2019</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ①</span></td>
+            <td><div class="ing-name">치커리 추출물</div></td>
+            <td><span class="func-tag">장내 GLP-1 보조</span></td>
+            <td><div class="ing-func">SCFA 경로 L세포 자극 보조</div></td>
+            <td><span class="cite">Brighenti et al.</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ②</span></td>
+            <td><div class="ing-name">알긴산나트륨</div><div class="ing-detail">⚠ 액상 점도 테스트 필요</div></td>
+            <td><span class="func-tag">포만감·혈당 완화</span></td>
+            <td><div class="ing-func">위 내 겔 형성 포만감 + 식후 혈당 스파이크 억제. 액상 제형 내 점도 최적화 필요</div></td>
+            <td><span class="cite">Paxman et al., Appetite 2008</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ③</span></td>
+            <td><div class="ing-name">웰레몬 (Wellemon™)</div><div class="ing-detail">스페인 Euromed 특허 / 에리오시트린 10%</div></td>
+            <td><span class="func-tag">지방 대사 개선</span></td>
+            <td><div class="ing-func">에리오시트린 → 항산화·항염·지방 대사 개선. 고지방·고당 식사 후 대사 지표 개선, 혈압 안정. "스페인 특허 원료" 마케팅 스토리</div></td>
+            <td><span class="cite">CEBAS-CSIC 급성 임상 — 에리오시트린 대사 지표·혈압 안정</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ④</span></td>
+            <td><div class="ing-name">산사자 (Crataegus)</div><div class="ing-detail">산사나무 열매 추출물</div></td>
+            <td><span class="func-tag">지질 대사 개선</span></td>
+            <td><div class="ing-func">트리테르펜산 → ACAT 억제 → 콜레스테롤·중성지방 흡수 억제. 귤피와 지질 대사 시너지</div></td>
+            <td><span class="cite">Lin et al., eCAM 2010 — ACAT 억제·콜레스테롤 저하</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-sub">서브 ⑤</span></td>
+            <td><div class="ing-name">바나바잎 추출물</div><div class="ing-detail">코로솔산</div></td>
+            <td><span class="func-tag">혈당 관리</span></td>
+            <td><div class="ing-func">코로솔산 → GLUT4 활성화 → 인슐린 감수성 개선 → 식후 혈당 스파이크 억제</div></td>
+            <td><span class="cite">Fukushima et al., J Int Med Res 2006 — 코로솔산 혈당 조절 인체 임상</span></td>
+          </tr>
+          <tr>
+            <td><span class="role-badge rb-aux">부원료</span></td>
+            <td><div class="ing-name">비타민 B1·B6·B12</div></td>
+            <td><span class="func-tag">에너지 대사</span></td>
+            <td><div class="ing-func">에너지 대사 효율화. 액상 용해 적합</div></td>
+            <td><span class="cite">식약처 고시 기능성</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section class="section" id="step3">
+  <div class="sec-label">Step 3</div>
+  <div class="sec-title">3단계 — GLP-1 + 체형 전환</div>
+  <div class="sec-sub">A안: 일반식품 (액상+정제 듀얼캡) · B안: 건강기능식품 (액상+CLA 캡슐 2알)</div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-badge sb-amber">STEP 3</span>
+      <span class="stage-name">GLP-1 즉효+지속 + 내장지방 + 장·배변 + 근육 보호</span>
+    </div>
+    <div class="stage-body">
+      <div class="consumer-line">
+        <div class="cl-label">광고 후크</div>
+        <div class="cl-text">"빠진 살이 에너지가 되고, 빠진 몸을 유지해줍니다."</div>
+      </div>
+      <div class="func-row">
+        <span class="func-pill fp-core">⭐ GLP-1 즉효+지속 이중 채널</span>
+        <span class="func-pill fp-boost">혈당 관리</span>
+        <span class="func-pill fp-boost">지방 합성 억제</span>
+        <span class="func-pill fp-boost">내장지방 분해</span>
+        <span class="func-pill fp-add">장 건강·배변</span>
+        <span class="func-pill fp-add">근손실 억제 보조</span>
+      </div>
+
+      <div class="tab-wrap">
+        <div class="tab-btns">
+          <button class="tab-btn on" onclick="switchTab(this,'pA')">A안 — 일반식품 (액상+정제 듀얼캡)</button>
+          <button class="tab-btn" onclick="switchTab(this,'pB')">B안 — 건강기능식품 (액상+CLA 캡슐)</button>
+        </div>
+
+        <!-- A안 -->
+        <div class="tab-pane show" id="pA">
+          <div style="padding:16px 0 4px;">
+            <span class="plan-badge pb-a">A안 · 일반식품</span>
+          </div>
+
+          <div class="dual-label dl-liquid">
+            <div class="dl-dot dd-teal"></div>이너캡 — 액상부 (즉효 채널) · 200~300mg
+          </div>
+          <table class="ing-table">
+            <thead><tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="role-badge rb-main">메인</span></td>
+                <td><div class="ing-name">홍삼 Rg3 초고농축</div><div class="ing-detail">Rg3 2.4mg↑</div></td>
+                <td><span class="func-tag">GLP-1 즉각 분비</span></td>
+                <td><div class="ing-func">GLP-1 즉각 분비 → 식전 빠른 포만감 신호. 소용량 고농도 설계</div></td>
+                <td><span class="cite">KGC인삼공사 임상 (2024)</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-main">메인</span></td>
+                <td><div class="ing-name">타르타리 메밀 루틴</div><div class="ing-detail">루틴 1.31mg</div></td>
+                <td><span class="func-tag">GLP-1 즉각 시너지</span></td>
+                <td><div class="ing-func">즉각 GLP-1 시너지. 소용량 고농도 탑재 가능</div></td>
+                <td><span class="cite">Shen et al., J Funct Foods 2021</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-fix">박사 시너지</span></td>
+                <td><div class="ing-name">인동·지황·귤피</div><div class="ing-detail">각 2.5g</div></td>
+                <td><span class="func-tag">복합 시너지</span></td>
+                <td><div class="ing-func">GLP-1 보조·DPP-4 억제·지방 합성 억제 시너지</div></td>
+                <td><span class="cite">PMC4812314; CIMB 2025</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-sub">서브</span></td>
+                <td><div class="ing-name">치커리·알긴산·웰레몬·산사자·바나바잎</div></td>
+                <td><span class="func-tag">혈당·지방 대사</span></td>
+                <td><div class="ing-func">2단계 액상부 서브 원료 전체 이월. 혈당·지방 합성 억제 기전 유지</div></td>
+                <td><span class="cite">2단계 근거 동일</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-aux">부원료</span></td>
+                <td><div class="ing-name">비타민 B6·B12</div></td>
+                <td><span class="func-tag">에너지 대사</span></td>
+                <td></td><td><span class="cite">식약처 고시</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="dual-label dl-tablet">
+            <div class="dl-dot dd-amber"></div>아우터캡 — 정제 1 (내장지방 분해) · 서방 설계
+          </div>
+          <table class="ing-table">
+            <thead><tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="role-badge rb-sub">핵심</span></td>
+                <td><div class="ing-name">퍼플티 추출물</div><div class="ing-detail">케냐 TRFK 306 / GHG·안토시아닌</div></td>
+                <td><span class="func-tag">내장지방 분해</span></td>
+                <td><div class="ing-func">GHG + 안토시아닌 → 장내 지방 흡수 억제 + 간 CPT 발현 증가 → 내장지방 감소. 인체 소규모 임상 체지방 감소 확인</div></td>
+                <td><span class="cite">Shimoda et al., Int J Obesity 2015 — CPT 발현·체지방 감소</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-aux">부원료</span></td>
+                <td><div class="ing-name">비타민 B6·B12</div></td>
+                <td><span class="func-tag">에너지·단백질 대사</span></td>
+                <td></td><td><span class="cite">식약처 고시</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="dual-label dl-tablet">
+            <div class="dl-dot dd-amber"></div>아우터캡 — 정제 2 (장 건강·배변 + 근손실 억제)
+          </div>
+          <table class="ing-table">
+            <thead><tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="role-badge rb-sub">핵심 ①</span></td>
+                <td><div class="ing-name">알로에 전잎</div><div class="ing-detail">Aloe vera whole leaf</div></td>
+                <td><span class="func-tag">장 건강·배변</span></td>
+                <td><div class="ing-func">장 점막 보호 + 배변 활동 원활 + 장 내 노폐물 배출. "뺀 만큼 몸속도 깨끗이 정리" 스토리</div></td>
+                <td><span class="cite">Langmead et al. — 알로에 장 점막 보호·배변 개선</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-sub">핵심 ②</span></td>
+                <td><div class="ing-name">HMB (CaHMB)</div><div class="ing-detail">류신 대사체 · 칼슘염</div></td>
+                <td><span class="func-tag">근손실 억제 보조</span></td>
+                <td><div class="ing-func">근육 단백질 분해 억제 + mTOR 합성 촉진 → 체중 감량 중 근육 보호. GLP-1 다이어트 근손실 우려 직접 해소</div></td>
+                <td><span class="cite">Wilson et al., J Strength Cond Res 2014 — HMB 근손실 억제</span><br><span class="cite-warn">⚠ 권장량 3g 대비 탑재 ~1g → 고단백 식사 병행 안내 필요</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-aux">부원료</span></td>
+                <td><div class="ing-name">비타민 D</div></td>
+                <td><span class="func-tag">근육·뼈 건강</span></td>
+                <td><div class="ing-func">근육 기능·뼈 건강 보조. HMB와 근육 보호 시너지. 고도비만 타겟 비타민D 결핍 빈도 높음</div></td>
+                <td><span class="cite">식약처 고시 기능성</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- B안 -->
+        <div class="tab-pane" id="pB">
+          <div style="padding:16px 0 4px;">
+            <span class="plan-badge pb-b">B안 · 건강기능식품</span>
+          </div>
+
+          <div class="dual-label dl-liquid">
+            <div class="dl-dot dd-teal"></div>액상 (A안 액상부 동일 + 비타민B6·B12·비타민D·류신 추가)
+          </div>
+          <table class="ing-table">
+            <thead><tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="role-badge rb-main">메인</span></td>
+                <td><div class="ing-name">홍삼 Rg3 + 타르타리 메밀 루틴</div><div class="ing-detail">핵심 함량 100%+</div></td>
+                <td><span class="func-tag">GLP-1 즉각 분비</span></td>
+                <td><div class="ing-func">A안 액상부 메인 원료와 동일</div></td>
+                <td><span class="cite">KGC인삼공사 임상 (2024); Shen et al. 2021</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-fix">박사 시너지</span></td>
+                <td><div class="ing-name">인동·지황·귤피 각 2.5g</div></td>
+                <td><span class="func-tag">복합 시너지</span></td>
+                <td><div class="ing-func">A안과 동일</div></td>
+                <td><span class="cite">PMC4812314; CIMB 2025</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-sub">서브</span></td>
+                <td><div class="ing-name">치커리·알긴산·웰레몬·산사자·바나바잎</div></td>
+                <td><span class="func-tag">혈당·지방 대사</span></td>
+                <td><div class="ing-func">2단계 서브 전체 이월. A안과 동일</div></td>
+                <td><span class="cite">2단계 근거 동일</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-badge rb-aux">부원료</span></td>
+                <td><div class="ing-name">비타민 B6·B12·비타민 D·류신</div><div class="ing-detail">A안 대비 비타민D·류신 액상부로 이동</div></td>
+                <td><span class="func-tag">대사·근육 보조</span></td>
+                <td><div class="ing-func">B안에서는 비타민D와 류신을 액상부에 포함시켜 CLA 캡슐이 단독 건기식 원료로 부각되도록 설계</div></td>
+                <td><span class="cite">식약처 고시 기능성</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="padding:10px 0 4px;border-top:1px solid var(--border);margin-top:2px;">
+            <div class="dual-label" style="color:var(--blue);background:var(--blue-dim);border-top:none;">
+              <div class="dl-dot" style="background:var(--blue);"></div>
+              건기식 캡슐 2알 — CLA (공액리놀레산) · 건강기능식품 핵심 기능성 원료
+            </div>
+          </div>
+          <table class="ing-table">
+            <thead><tr><th class="col-role">역할</th><th class="col-ing">원료</th><th class="col-func">기능</th><th class="col-sogu">기전 및 소구점</th><th class="col-cite">근거 논문</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="role-badge rb-gfood">건기식 핵심</span></td>
+                <td><div class="ing-name">공액리놀레산 (CLA)</div><div class="ing-detail">일일 3g · 캡슐 2알 분리 설계</div></td>
+                <td><span class="func-tag">체지방 감소</span></td>
+                <td><div class="ing-func">trans-10, cis-12 CLA → 지방분해(lipolysis)·지방산화 유도 → 체지방 감소 (근육량 유지). 식약처 "과체중인 성인의 체지방 감소에 도움을 줄 수 있음" 기능성 인정 원료. 내장지방 타겟 + "체지방만 감소, 근육은 유지"라는 차별화 소구 가능</div></td>
+                <td><span class="cite">식약처 건기식 개별인정형 원료 — 과체중 성인 체지방 감소</span><br><span class="cite">Blankson et al., J Nutr 2000 — CLA 12주 체지방 감소 인체 임상</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note-box nb-blue" style="margin-top:12px;">
+            <div class="nb-icon">ℹ</div>
+            <div class="nb-text"><strong style="color:var(--blue);">B안 건기식 설계 포인트</strong> — 액상은 일반식품 원료 전체를 담고, CLA 캡슐 2알만 건기식으로 분리합니다. "식약처 인정 체지방 감소 원료 포함"이라는 공식 기능성 표기가 가능해져 신뢰 소구가 강화됩니다. 단, 건기식 표시광고 기준을 CLA 기능성 표기에 한정 적용하는 이원화 설계가 필요합니다 — 인허가팀 검토 필수.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box nb-amber">
+        <div class="nb-icon">⚠</div>
+        <div class="nb-text" style="color:var(--text2);"><strong style="color:var(--coral);">A안 HMB 소구 주의사항</strong> — HMB 임상 권장량(3g/일) 대비 정제부 탑재 가능량은 약 1g입니다. "고단백 식사 및 적절한 운동 병행 권장" 문구와 함께, 패키지 루틴(제품+단백질 섭취)으로 묶어 소구하는 것이 효과적입니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFF -->
+<section class="section" id="diff">
+  <div class="sec-label">Change Log</div>
+  <div class="sec-title">초기 기획안 대비 변경 비교</div>
+  <div class="sec-sub">기획자 초안 → 최종 확정안 · 변경 이유 포함</div>
+
+  <table class="diff-table">
+    <thead>
+      <tr>
+        <th class="dcol-stage">단계</th>
+        <th class="dcol-before">초기 기획자 안</th>
+        <th class="dcol-after">최종 확정 안</th>
+        <th>변경 이유</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dcol-stage">부스터</td>
+        <td>
+          <span class="diff-before">알파리포산(시금치추출물 지표성분)</span><br>
+          <span class="diff-before">샤프란</span>
+        </td>
+        <td>
+          <span class="diff-after">베르베린 (메인)</span><br>
+          <span class="diff-after">여주추출물 (서브)</span>
+        </td>
+        <td class="diff-reason">
+          시금치에서 알파리포산 유효량 확보 불가 (300mg을 위해 315kg 필요). 알파리포산은 국내 의약품 성분으로 일반식품·건기식 모두 사용 불가.<br>
+          샤프란은 세로토닌 경로로 부스터 "쓴맛 즉각 식욕억제" 기전과 방향 불일치.<br>
+          → 쓴맛 TAS2R 기전을 직접 타겟하는 베르베린+여주로 교체. 필름 제형 탑재 가능 용량(50~100mg)도 적합.
+        </td>
+      </tr>
+      <tr>
+        <td class="dcol-stage">1단계</td>
+        <td>
+          홍삼·메밀·인동·지황·귤피 (동일)<br>
+          치커리추출물 (동일)<br>
+          알긴산나트륨 (동일)<br>
+          <span class="diff-before strike">글루코만난</span>
+        </td>
+        <td>
+          홍삼·메밀·인동·지황·귤피 (유지)<br>
+          치커리추출물 (유지)<br>
+          알긴산나트륨 (유지)<br>
+          <span class="diff-after">비타민 B1·B6·B12 추가</span>
+        </td>
+        <td class="diff-reason">
+          <span class="diff-before">글루코만난 제외</span>: 정제 제형에서 글루코만난은 수분 흡수 후 팽창하는 특성으로 식도 막힘 위험 존재. 정제형 부적합.<br>
+          <span class="diff-after">비타민 B군 추가</span>: 에너지 대사 스펙 강화 + 소비자 인지도 높아 1단계 완성도 향상.
+        </td>
+      </tr>
+      <tr>
+        <td class="dcol-stage">2단계</td>
+        <td>
+          홍삼·메밀·인동·지황·귤피·치커리 (동일)<br>
+          알긴산나트륨 (동일)<br>
+          여주추출물 (동일)<br>
+          웰레몬 (동일)<br>
+          산사자 (동일)<br>
+          인동·지황·귤피 각 2.5g (동일)
+        </td>
+        <td>
+          홍삼·메밀·인동·지황·귤피·치커리 (유지)<br>
+          알긴산나트륨 (유지, 점도 주의)<br>
+          여주추출물 (유지)<br>
+          웰레몬 (유지)<br>
+          산사자 (유지)<br>
+          인동·지황·귤피 각 2.5g (유지)<br>
+          <span class="diff-after">바나바잎 추출물 추가</span><br>
+          <span class="diff-after">비타민 B1·B6·B12 추가</span>
+        </td>
+        <td class="diff-reason">
+          <span class="diff-after">바나바잎 추가</span>: 여주 단독으로 혈당 관리 기전 약함. 코로솔산(인슐린 감수성)과 여주(혈당 흡수 억제)를 다른 기전 축으로 병용해 혈당 관리 완성도 강화.<br>
+          <span class="diff-after">비타민 B군 추가</span>: 에너지 대사 스펙 강화.
+        </td>
+      </tr>
+      <tr>
+        <td class="dcol-stage">3단계<br>A안</td>
+        <td>
+          액상: 2단계 전 원료 (동일)<br>
+          정제1: 퍼플티+B6·B12 (동일)<br>
+          <span class="diff-before">정제2: 알로에전잎</span>
+        </td>
+        <td>
+          액상: 2단계 전 원료 (유지)<br>
+          정제1: 퍼플티+B6·B12 (유지)<br>
+          <span class="diff-after">정제2: 알로에전잎 + HMB(CaHMB) + 비타민D</span>
+        </td>
+        <td class="diff-reason">
+          <span class="diff-after">HMB 추가</span>: 기획자 원안(알로에전잎)에는 근손실 억제 원료가 없었음. GLP-1 다이어트의 근손실 우려를 직접 해소하기 위해 HMB(류신 대사체)를 추가. 류신 자체는 유효량(2~3g)이 정제부 탑재 한계를 초과하는 반면, HMB는 소량(1g)에서도 근육 단백질 분해 억제 기전이 작동하여 정제 탑재에 적합.<br>
+          <span class="diff-after">비타민D 추가</span>: 근육 기능·뼈 건강 보조 및 HMB와 시너지. 고도비만 타겟에서 비타민D 결핍 빈도가 높아 스펙 강화 목적으로 추가.<br>
+          3단계 "지방간 개선" 소구 제거 → "장 건강·배변 활동"으로 소구 방향 변경. 알로에 전잎 유지.
+        </td>
+      </tr>
+      <tr>
+        <td class="dcol-stage">3단계<br>B안</td>
+        <td colspan="2" style="color:var(--text2);font-style:italic;">초기 기획안 없음 — 신규 추가 방향</td>
+        <td class="diff-reason">
+          <span class="diff-after">신규: 건기식 버전 설계</span><br>
+          CLA(공액리놀레산)를 캡슐 2알(3g/일)로 분리해 건기식 기능성 원료로 탑재. 식약처 "과체중 성인 체지방 감소" 공식 기능성 표기 가능.<br>
+          액상은 A안과 동일한 일반식품 원료 구성 + 비타민D·류신을 액상부로 이동. CLA 캡슐이 건기식 단독 원료로 부각되는 이원화 구조.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+</div>
+
+<script>
+function switchTab(btn,id){
+  btn.closest('.tab-wrap').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('on','on-b'));
+  btn.closest('.tab-wrap').querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('show'));
+  btn.classList.add(id==='pB'?'on-b':'on');
+  document.getElementById(id).classList.add('show');
+}
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('nav a');
+const obs=new IntersectionObserver(e=>{
+  e.forEach(en=>{
+    if(en.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const a=document.querySelector(`nav a[href="#${en.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
