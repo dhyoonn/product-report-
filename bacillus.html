@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B. coagulans 2균주 임상 비교</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    padding: 32px 24px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .page-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .page-title h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.5px;
+  }
+  .page-title p {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+
+  .badge-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .badge.snz { background: #eff6ff; color: #1d4ed8; }
+  .badge.snz .badge-dot { background: #1d4ed8; }
+  .badge.is2 { background: #f0fdf4; color: #15803d; }
+  .badge.is2 .badge-dot { background: #15803d; }
+
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 14px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    letter-spacing: -0.3px;
+  }
+
+  .tbl-wrap {
+    overflow-x: auto;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    min-width: 560px;
+  }
+  thead th {
+    padding: 11px 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  thead th.col-item {
+    text-align: left;
+    width: 220px;
+    background: #f8fafc;
+    color: #374151;
+  }
+  thead th.col-snz { background: #eff6ff; color: #1d4ed8; font-size: 13px; }
+  thead th.col-is2 { background: #f0fdf4; color: #15803d; font-size: 13px; }
+
+  tbody tr:nth-child(even) td { background: #fafafa; }
+  tbody tr:hover td { background: #f1f5f9; transition: background .15s; }
+  tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  td.col-item {
+    font-weight: 600;
+    color: #374151;
+    background: #f8fafc !important;
+    font-size: 12px;
+  }
+  td.center { text-align: center; }
+
+  .yes  { color: #15803d; font-weight: 700; }
+  .no   { color: #9ca3af; }
+  .part { color: #d97706; font-weight: 600; }
+  .highlight {
+    background: #fef3c7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #92400e;
+    font-size: 13px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    margin: 1px;
+  }
+  .tag-rct { background: #dbeafe; color: #1e40af; }
+  .tag-obs { background: #d1fae5; color: #065f46; }
+  .sub { font-size: 11px; color: #6b7280; display: block; margin-top: 2px; }
+
+  /* 승자 표시 */
+  .win-snz { border-left: 3px solid #1d4ed8; }
+  .win-is2  { border-left: 3px solid #15803d; }
+  .win-tie  { border-left: 3px solid #9ca3af; }
+
+  /* 논문 */
+  .ref-section { margin-bottom: 28px; }
+  .ref-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a2e;
+  }
+  .ref-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .ref-dot.snz { background: #1d4ed8; }
+  .ref-dot.is2  { background: #15803d; }
+  .ref-list { list-style: none; }
+  .ref-list li {
+    padding: 9px 12px 9px 14px;
+    border-left: 3px solid #e5e7eb;
+    margin-bottom: 7px;
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    color: #374151;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .ref-list li.snz-b { border-left-color: #1d4ed8; }
+  .ref-list li.is2-b { border-left-color: #15803d; }
+  .ref-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    margin-right: 6px;
+    flex-shrink: 0;
+    vertical-align: middle;
+  }
+  .ref-num.snz { background: #dbeafe; color: #1d4ed8; }
+  .ref-num.is2  { background: #d1fae5; color: #15803d; }
+  .ref-meta { color: #6b7280; font-size: 11px; margin-top: 3px; margin-left: 26px; }
+
+  .summary-box {
+    background: #1a1a2e;
+    color: #e5e7eb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 12.5px;
+    line-height: 1.9;
+    margin-top: 8px;
+  }
+  .summary-box strong { color: #fbbf24; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>Bacillus coagulans 2균주 임상 데이터 비교</h1>
+  <p>질 유산균 구미젤리 원료 선택 기준 — SNZ 1969® vs Unique IS-2®</p>
+</div>
+
+<div class="badge-row">
+  <span class="badge snz"><span class="badge-dot"></span>SNZ 1969® (Sanzyme Biologics)</span>
+  <span class="badge is2"><span class="badge-dot"></span>Unique IS-2® (Unique Biotech)</span>
+</div>
+
+<!-- 섹션 1: 질 건강 임상 -->
+<div class="section">
+  <div class="section-title">① 질 건강 관련 임상 데이터</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-item">항목</th>
+          <th class="col-snz">SNZ 1969®</th>
+          <th class="col-is2">Unique IS-2®</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="win-tie">
+          <td class="col-item">질 건강 임상 존재</td>
+          <td class="center"><span class="yes">✅ 있음</span></td>
+          <td class="center"><span class="yes">✅ 있음</span></td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">적응증</td>
+          <td class="center">세균성 질염 (BV)</td>
+          <td class="center">세균성 질염 (BV)</td>
+        </tr>
+        <tr class="win-snz">
+          <td class="col-item">연구 설계</td>
+          <td class="center">
+            <span class="tag tag-rct">전향적 RCT</span>
+          </td>
+          <td class="center">
+            <span class="tag tag-obs">비교 임상연구</span>
+            <span class="sub">비RCT에 가까움</span>
+          </td>
+        </tr>
+        <tr class="win-snz">
+          <td class="col-item">대상자 수</td>
+          <td class="center">
+            <strong>120명</strong>
+            <span class="sub">173명 스크리닝</span>
+          </td>
+          <td class="center">
+            40명
+            <span class="sub">각 군 20명</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">투여 방법</td>
+          <td>경구, 120 million CFU<br>× 3회/일 × 21일</td>
+          <td>경구, 10⁹ CFU × 2캡슐/일<br>(항생제 병용)</td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">비교군 설정</td>
+          <td>메트로니다졸 단독<br>vs 메트로니다졸 + SNZ 1969 병용</td>
+          <td>항생제 단독<br>vs 항생제 + IS-2 병용</td>
+        </tr>
+        <tr class="win-snz">
+          <td class="col-item">BV 증상 개선율</td>
+          <td class="center">
+            <span class="highlight">병용군 86.6%</span>
+            <span class="sub">단독군 대비 유의 개선</span>
+          </td>
+          <td class="center">
+            <span class="highlight">병용군 80%</span>
+            <span class="sub">단독군 45% 대비</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">질 pH 정상화</td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+          <td class="center">
+            <span class="yes">✅ 확인</span>
+            <span class="sub">pH &gt;4.7 → 정상화</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">질 내 Lactobacillus 증가</td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">냄새(amine odor) 개선</td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">분비물(discharge) 개선</td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+          <td class="center">
+            <span class="yes">✅ 확인</span>
+            <span class="sub">white discharge 감소</span>
+          </td>
+        </tr>
+        <tr class="win-snz">
+          <td class="col-item">BV 재발 억제</td>
+          <td class="center"><span class="yes">✅ 확인</span></td>
+          <td class="center">
+            <span class="part">△ 미확인</span>
+            <span class="sub">단기 연구, 추적 없음</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">게재 저널</td>
+          <td style="font-size:11px;color:#374151;">
+            Int. J. Probiotics and Prebiotics<br>12(4):175–182
+          </td>
+          <td style="font-size:11px;color:#374151;">
+            Indian J. Microbiology<br>52(3):396–399
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">출판 연도</td>
+          <td class="center">2017</td>
+          <td class="center">2012</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 섹션 2: 전체 임상 범위 -->
+<div class="section">
+  <div class="section-title">② 전체 임상 연구 범위</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-item">적응증</th>
+          <th class="col-snz">SNZ 1969®</th>
+          <th class="col-is2">Unique IS-2®</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="win-tie">
+          <td class="col-item">세균성 질염 (BV)</td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">120명, 21일</span>
+          </td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-obs">비교 임상</span>
+            <span class="sub">40명</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">IBS (변비형·설사형)</td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">92명, 60일</span>
+          </td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">136명, 8주</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">변비</td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">성인 대상</span>
+          </td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">4주</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">설사 / 급성 장염</td>
+          <td class="center">
+            <span class="yes">✅</span>
+            <span class="sub">소아 포함</span>
+          </td>
+          <td class="center"><span class="yes">✅</span></td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">위장관 불편감 (dyspepsia)</td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">30일</span>
+          </td>
+          <td class="center"><span class="yes">✅</span></td>
+        </tr>
+        <tr class="win-is2">
+          <td class="col-item">IBD (염증성 장질환)</td>
+          <td class="center"><span class="no">❌</span></td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">AIIMS 뉴델리</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">항생제 연관 설사 예방</td>
+          <td class="center"><span class="yes">✅</span></td>
+          <td class="center"><span class="yes">✅</span></td>
+        </tr>
+        <tr class="win-snz">
+          <td class="col-item">면역 (NK세포 · IgA)</td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">60명, 12주</span>
+          </td>
+          <td class="center"><span class="no">❌</span></td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">영아 · 소아 장 건강</td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">94명, 12개월</span>
+          </td>
+          <td class="center">
+            <span class="yes">✅</span>
+            <span class="sub">소아 기능성 복통</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">고콜레스테롤</td>
+          <td class="center"><span class="yes">✅</span></td>
+          <td class="center"><span class="yes">✅</span></td>
+        </tr>
+        <tr class="win-is2">
+          <td class="col-item">구강 건강</td>
+          <td class="center"><span class="no">❌</span></td>
+          <td class="center">
+            <span class="yes">✅</span> <span class="tag tag-rct">RCT</span>
+            <span class="sub">소아 치아 우식</span>
+          </td>
+        </tr>
+        <tr class="win-tie">
+          <td class="col-item">단백질 흡수</td>
+          <td class="center">
+            <span class="yes">✅</span>
+            <span class="sub">크로스오버 연구</span>
+          </td>
+          <td class="center"><span class="yes">✅</span></td>
+        </tr>
+        <tr class="win-is2">
+          <td class="col-item">인지 · 스트레스</td>
+          <td class="center"><span class="no">❌</span></td>
+          <td class="center">
+            <span class="yes">✅</span>
+            <span class="sub">전임상 + 임상</span>
+          </td>
+        </tr>
+        <tr class="win-is2">
+          <td class="col-item">간경화 합병증</td>
+          <td class="center"><span class="no">❌</span></td>
+          <td class="center">
+            <span class="yes">✅</span>
+            <span class="sub">6개월 파일럿</span>
+          </td>
+        </tr>
+        <tr style="background:#f8fafc!important;">
+          <td class="col-item" style="font-weight:700;color:#1a1a2e;">공개 임상 총 건수 (추정)</td>
+          <td class="center" style="font-weight:700;font-size:16px;color:#1d4ed8;">약 9건+</td>
+          <td class="center" style="font-weight:700;font-size:16px;color:#15803d;">약 25건+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 섹션 3: 논문 출처 -->
+<div class="section">
+  <div class="section-title">③ 논문 출처</div>
+  <div style="background:#fff;border-radius:0 0 8px 8px;padding:22px 20px 24px;box-shadow:0 1px 6px rgba(0,0,0,0.08);">
+
+    <!-- SNZ 1969 -->
+    <div class="ref-section">
+      <div class="ref-header">
+        <span class="ref-dot snz"></span>SNZ 1969® (Sanzyme Biologics)
+      </div>
+      <ul class="ref-list">
+        <li class="snz-b">
+          <span class="ref-num snz">1</span>
+          <strong>BV 임상</strong> — 재발성 세균성 질염, 120명 RCT, 병용군 86.6% 개선, 재발 억제 확인
+          <div class="ref-meta">Rani VU et al. / <em>Int. J. Probiotics and Prebiotics</em>, 12(4):175–182 / 2017</div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">2</span>
+          <strong>IBS-C·IBS-D 임상</strong> — 92명 RCT, 60일, GSRS-IBS 증상 및 QoL 유의 개선
+          <div class="ref-meta">Rajagopalan M et al. / <em>Int. J. Basic & Clinical Pharmacology</em> / 2022</div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">3</span>
+          <strong>위장관 불편감 (dyspepsia)</strong> — 30명 RCT, 30일, SODA 점수 유의 개선
+          <div class="ref-meta">Soman RJ, Singh K, Swamy MV / <em>Int. J. Health Sci. Res.</em>, 12(3):253–264 / 2022</div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">4</span>
+          <strong>변비·장운동 개선</strong> — 성인 RCT, 장내 미생물 변화 및 장운동 촉진
+          <div class="ref-meta">Kang S et al. / <em>Food Research International</em> / 2021</div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">5</span>
+          <strong>소아 장 건강</strong> — 94명 영아 12개월 RCT, GI 증상 발생일·기간 감소
+          <div class="ref-meta">Chandra RK / <em>Nutrition Research</em> / 2002</div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">6</span>
+          <strong>면역 (NK세포·IgA)</strong> — 60명 RCT 12주, NK세포 활성 +42.07%, 혈청·타액 IgA 유의 증가
+          <div class="ref-meta">Murthy DK et al. / <em>Cureus</em>, 17(10):e94845 / 2025 · PMC12624130</div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">7</span>
+          <strong>단백질 흡수</strong> — 유청단백 병용 시 아미노산(Arg, Cys, His) Cmax 증가, 14일 크로스오버
+          <div class="ref-meta">원료사 공개 데이터 / <em>Longdom Open Access</em></div>
+        </li>
+        <li class="snz-b">
+          <span class="ref-num snz">8</span>
+          <strong>안전성 평가</strong> — Wistar rat 급성·아급성 독성, NOAEL 5×10¹¹ CFU/kg 확인
+          <div class="ref-meta">— / <em>Regulatory Toxicology and Pharmacology</em> / 2019</div>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- IS-2 -->
+    <div class="ref-section">
+      <div class="ref-header">
+        <span class="ref-dot is2"></span>Unique IS-2® (Unique Biotech Limited)
+      </div>
+      <ul class="ref-list">
+        <li class="is2-b">
+          <span class="ref-num is2">1</span>
+          <strong>BV 임상</strong> — 항생제 병용 시 증상 개선 80% vs 단독군 45% (40명)
+          <div class="ref-meta">Ratna Sudha MR, Yelikar KA, Deshpande S / <em>Indian J. Microbiology</em>, 52(3):396–399 / 2012 · PMID: 23997330</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">2</span>
+          <strong>IBS 성인 임상</strong> — 136명 RCT, 8주, 복통·배변·팽만감 유의 개선
+          <div class="ref-meta">Madempudi RS et al. / <em>Scientific Reports (Nature)</em>, 9(1) / 2019 · PMC6704184</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">3</span>
+          <strong>IBD (궤양성 대장염)</strong> — AIIMS 뉴델리 RCT, 표준치료 병용, 증상·사이토카인 개선
+          <div class="ref-meta">Neelamraju J et al. / <em>medRxiv preprint</em> / 2021</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">4</span>
+          <strong>변비</strong> — 락툴로스 병용 RCT, 변비 완화 기간 단축
+          <div class="ref-meta">Venkataraman R et al. / <em>Probiotics Antimicrob. Proteins</em>, 15(2):379–386 / 2023</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">5</span>
+          <strong>소아 기능성 복통</strong> — 소아 IBS 복통 증상 개선
+          <div class="ref-meta">원료사 임상 포트폴리오 참조</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">6</span>
+          <strong>구강 건강</strong> — 소아 타액·플라크 내 충치균 감소 RCT
+          <div class="ref-meta">Ratna Sudha M et al. / <em>BioMed Research International</em> / 2020 · PMC7787822</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">7</span>
+          <strong>고콜레스테롤</strong> — 총 콜레스테롤·LDL 감소, HDL 증가
+          <div class="ref-meta">Sudha MR, Radkar N, Maurya A / <em>Int. J. Probiotics Prebiotics</em>, 6:89–93 / 2011</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">8</span>
+          <strong>간경화 합병증</strong> — 혈중 암모니아·간성 뇌증·입원율 감소, 6개월 파일럿
+          <div class="ref-meta">Pawar R, Pardeshi M, Ghongane B / <em>Int. J. Biomed. Pharma Sci.</em>, 3(1):206–211 / 2012</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">9</span>
+          <strong>인지·스트레스</strong> — 불안·우울 동물 모델 개선, 장-뇌 축 재형성
+          <div class="ref-meta">Dandekar MP et al. / <em>Behavioural Brain Research</em> / 2023</div>
+        </li>
+        <li class="is2-b">
+          <span class="ref-num is2">10</span>
+          <strong>게놈 분석</strong> — 포자형성·프로바이오틱 특성 유전자 전체 해독
+          <div class="ref-meta">Upadrasta A, Pitta S, Madempudi RS / <em>Genome Announcements (ASM)</em>, 4(2) / 2016 · PMC4841124</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="summary-box">
+      <strong>📌 핵심 요약</strong><br>
+      <strong>질 건강 임상 근거:</strong> SNZ 1969®는 더 큰 규모의 RCT(120명)와 재발 억제 데이터를 보유. IS-2®는 더 이른 시기(2012)에 실증됐으나 소규모 비교 연구.<br>
+      <strong>전체 임상 누적:</strong> IS-2® (25건+)가 SNZ 1969® (9건+)보다 훨씬 폭넓은 적응증 포트폴리오 보유.<br>
+      <strong>질 유산균 구미젤리 기획 시:</strong> 질 건강 특화 임상 근거의 강도는 SNZ 1969® 우위, 전반적 임상 신뢰성 및 국내 건기식 인정은 IS-2® 우위.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
